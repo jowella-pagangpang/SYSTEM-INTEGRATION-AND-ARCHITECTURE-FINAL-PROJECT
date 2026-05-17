@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Build files
+Debug/
+Release/
+
+# Cache
+*.cache
+
+# User files
+*.user
+*.suo
+
+# Node modules
+node_modules/
+
+# Logs
+*.log

@@ -1,0 +1,23 @@
+REVISIONS:
+
+system:
+health service should be highlighted once the user is searching
+date of birth (moving forward) - disabled
+improve the design/interface when editing the immunization and other health services
+add download button in the tables for health services
+specify the name of the user logged in
+check the inputs (ex. name should not accept numbers)
+patient should have historical data
+name is clickable for adding of records/consultation
+add patient id
+reports: include prepared by
+
+document:
+terms in the system (nhts etc.) should be added in the definition of terms
+recommendation 1: patients should have access/view in the system
+recommendation 2: inventory of medicines/vaccines
+recommendation 3: access of city health office
+update the limitations
+conduct evaluation at least 20 (bhw/nurse)
+update document based on the changes in system, eval, etc.
+sample reports for tcl should be readable (separate pages)

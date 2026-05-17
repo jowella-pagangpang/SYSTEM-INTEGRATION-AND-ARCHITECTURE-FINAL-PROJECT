@@ -1,0 +1,141 @@
+
+                                                <div class="form-group">
+                                                    <?php
+                                                    $regDate = $row['reg_date'];
+                                                    $readonly = ($regDate === '0000-00-00') ? '' : 'readonly';
+                                                    ?>
+
+                                                    <label>Date of Registration: <code class="text-danger">*</code></label>
+                                                    <input name="reg_date" class="form-control form-control-sm" type="date"
+                                                        value="<?php echo $regDate; ?>" <?php echo $readonly; ?>>
+                                                </div>
+
+
+                                                                    
+                                <?php
+                                $bcg = $row['bcg'];
+                                $hepa = $row['hepab1'];
+                                $iron2nd = $row['iron2'];
+                                $mnp2nd = $row['mnp2'];
+                                $deworm = $row['deworming'];
+                                $deworm = $row['deworming'];
+                                $deworm = $row['deworming'];
+                                $deworm = $row['deworming'];
+                                $deworm = $row['deworming'];
+                                $deworm = $row['deworming'];
+                                $deworm = $row['deworming'];
+                                $deworm = $row['deworming'];
+                                $readonly1 = ($vit1 === '0000-00-00') ? '' : 'readonly';
+                                $readonly2 = ($vit2 === '0000-00-00') ? '' : 'readonly';
+                                $readonly3 = ($iron2nd === '0000-00-00') ? '' : 'readonly';
+                                $readonly4 = ($mnp2nd === '0000-00-00') ? '' : 'readonly';
+                                $readonly5 = ($deworm === '0000-00-00') ? '' : 'readonly';
+                                $readonly6 = ($deworm === '0000-00-00') ? '' : 'readonly';
+                                $readonly7 = ($deworm === '0000-00-00') ? '' : 'readonly';
+                                $readonly8 = ($deworm === '0000-00-00') ? '' : 'readonly';
+                                $readonly9 = ($deworm === '0000-00-00') ? '' : 'readonly';
+                                $readonly10 = ($deworm === '0000-00-00') ? '' : 'readonly';
+                                $readonly11 = ($deworm === '0000-00-00') ? '' : 'readonly';
+                                $readonly12 = ($deworm === '0000-00-00') ? '' : 'readonly';
+                                ?>
+
+
+
+
+Bacillus Calmette-Guérin (BCG).
+DPT-HIB-HepB (Pentavalent vaccine).
+Fully Immunized Child (FIC).
+Inactivated Polio Vaccine (IPV).
+Measles, mumps, and rubella (MMR).
+Oral Polio Vaccine (OPV).
+Pneumococcal Conjugate Vaccine (PCV).
+
+
+
+
+                  <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box" style="background-color: #C0C0C0 " ;>
+                      <div class="inner">
+                        <h3>
+                          <?php
+                          $n2 = mysqli_query($con, "SELECT * from nutrition2");
+                          $n2_total = mysqli_num_rows($n2);
+                          echo $n1_total + $n2_total;
+                          ?>
+                        </h3>
+                        <p class="text-right font-weight-bold">Nutrition and Expanded<br> Program for Immunization</p>
+                      </div>
+                      <a href="#" class="small-box-footer text-dark" data-toggle="modal" data-target="#nutrition-epi">
+                        Manage List <i class="fas fa-arrow-circle-right"></i></a>
+
+                      <div class="modal fade" id="nutrition-epi">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+
+                            <div class="modal-body">
+                              <div class="small-box" style="background-color: #C0C0C0" ;>
+                                <div class="inner">
+                                  <h3>
+                                    <?php
+                                    $n1 = mysqli_query($con, "SELECT * from nutrition1");
+                                    $n1_total = mysqli_num_rows($n1);
+                                    echo $n1_total;
+                                    ?>
+                                  </h3>
+                                  <p class="text-right font-weight-bold text-center">Nutrition and Expanded<br> Program for
+                                    Immunization I</p>
+                                </div>
+                                <a href="../nutrition1/nutrition1.php" class="small-box-footer text-dark">Manage List <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                              </div>
+
+                              <div class="small-box" style="background-color: #C0C0C0" ;>
+                                <div class="inner">
+                                  <h3>
+                                    <?php
+                                    $n2 = mysqli_query($con, "SELECT * from nutrition2");
+                                    $n2_total = mysqli_num_rows($n2);
+                                    echo $n2_total;
+                                    ?>
+                                  </h3>
+                                  <p class="text-right font-weight-bold text-center">Nutrition and Expanded<br> Program for
+                                    Immunization II</p>
+                                </div>
+                                <a href="../nutrition2/nutrition2.php" class="small-box-footer text-dark">Manage List <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
+
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box" style="background-color: #FFB366" ;>
+                      <div class="inner">
+                        <h3>
+                          <?php
+                          $sc = mysqli_query($con, "SELECT * from sickchildren");
+                          $sc_total = mysqli_num_rows($sc);
+                          echo $sc_total;
+                          ?>
+                        </h3>
+                        <p class="text-right font-weight-bold">Sick Children</p><br>
+                      </div>
+                      <a href="../sickchildren/sickchildren.php" class="small-box-footer text-dark">Manage List <i
+                          class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                  </div>
+                  <!-- ./col -->

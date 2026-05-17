@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Only Letters Input</title>
+  <style>
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 180px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+  <script>
+    function validateInput(input) {
+      var regex = /^[a-zA-Z]+$/;
+      return regex.test(input);
+    }
+
+    function handleInput(inputField) {
+      var inputValue = inputField.value;
+      var isValid = validateInput(inputValue);
+      
+      var tooltip = inputField.nextElementSibling;
+      if (!isValid) {
+        tooltip.style.visibility = 'visible';
+        inputField.value = '';
+      } else {
+        tooltip.style.visibility = 'hidden';
+      }
+    }
+  </script>
+</head>
+<body>
+  <label for="name" class="tooltip">
+    Name:
+    <span class="tooltiptext">Please enter only letters.</span>
+  </label>
+  <input type="text" id="name" oninput="handleInput(this)">
+</body>
+</html>
+
+
+
+
+  <script>
+    function validateInput(input) {
+      var regex = /^[a-zA-Z]+$/;
+      return regex.test(input);
+    }
+
+    function handleInput(inputField) {
+      var inputValue = inputField.value;
+      var isValid = validateInput(inputValue);
+      
+      if (!isValid) {
+        alert("Please enter only letters.");
+        inputField.value = '';
+      }
+    }
+  </script>
+
+
+oninput="handleInput(this)"
+
+
+
+
+<script>
+function validateInput(inputElement) {
+    let inputValue = inputElement.value;
+    let lettersOnly = inputValue.replace(/[^a-zA-Z\s.]/g, '');
+
+    if (inputValue !== lettersOnly) {
+        let selectionStart = inputElement.selectionStart;
+        let selectionEnd = inputElement.selectionEnd;
+
+        inputElement.value = lettersOnly;
+
+        // Restore cursor position
+        inputElement.setSelectionRange(selectionStart, selectionEnd);
+    }
+}
+</script>
+
+
+      oninput="validateInput(this)"

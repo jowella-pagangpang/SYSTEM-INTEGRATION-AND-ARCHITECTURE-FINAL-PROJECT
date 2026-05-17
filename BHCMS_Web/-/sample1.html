@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox and Date Pickers</title>
+    
+    <!-- Add AdminLTE 3 CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/adminlte@3.2.0/dist/css/adminlte.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/adminlte@3.2.0/dist/js/adminlte.min.js"></script>
+
+    <!-- Add iCheck CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.3/skins/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.3/icheck.min.js"></script>
+
+    <!-- Add Bootstrap Datepicker CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Checkbox 1 -->
+                            <div class="form-group">
+                                <label for="checkbox1">Checkbox 1</label>
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="checkbox1">
+                                    <label for="checkbox1">Show Date Picker 1</label>
+                                </div>
+                            </div>
+
+                            <!-- Date Picker 1 -->
+                            <div class="form-group" id="datepicker1" style="display: none;">
+                                <label for="datepicker1_input">Select a date:</label>
+                                <input type="text" class="form-control" id="datepicker1_input">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- Checkbox 2 -->
+                            <div class="form-group">
+                                <label for="checkbox2">Checkbox 2</label>
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="checkbox2">
+                                    <label for="checkbox2">Show Date Picker 2</label>
+                                </div>
+                            </div>
+
+                            <!-- Date Picker 2 -->
+                            <div class="form-group" id="datepicker2" style="display: none;">
+                                <label for="datepicker2_input">Select a date:</label>
+                                <input type="text" class="form-control" id="datepicker2_input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Initialize iCheck for checkboxes
+        $(document).ready(function () {
+            $('input[type="checkbox"]').iCheck({
+                checkboxClass: 'icheck-primary',
+                radioClass: 'iradio_square',
+            });
+        });
+
+        // Handle Checkbox 1
+        $('#checkbox1').on('ifChecked', function () {
+            $('#datepicker1').show();
+            $('#datepicker2').hide(); // Hide Date Picker 2 when Checkbox 1 is checked
+        });
+
+        $('#checkbox1').on('ifUnchecked', function () {
+            $('#datepicker1').hide();
+        });
+
+        // Handle Checkbox 2
+        $('#checkbox2').on('ifChecked', function () {
+            $('#datepicker2').show();
+            $('#datepicker1').hide(); // Hide Date Picker 1 when Checkbox 2 is checked
+        });
+
+        $('#checkbox2').on('ifUnchecked', function () {
+            $('#datepicker2').hide();
+        });
+
+        // Initialize Date Pickers
+        $('#datepicker1_input').datepicker();
+        $('#datepicker2_input').datepicker();
+    </script>
+</body>
+</html>

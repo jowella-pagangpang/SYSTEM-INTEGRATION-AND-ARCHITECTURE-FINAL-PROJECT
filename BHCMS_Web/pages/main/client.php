@@ -154,6 +154,14 @@ if (!isset($_SESSION['type'])) {
                                 </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                          <a href="../../api-sync-logs.php" class="nav-link">
+                            <i class="nav-icon fas fa-sync-alt"></i>
+                            <p>
+                              API Sync Logs
+                            </p>
+                            </a>
+                        </li>
                 </ul>
 
         </nav>

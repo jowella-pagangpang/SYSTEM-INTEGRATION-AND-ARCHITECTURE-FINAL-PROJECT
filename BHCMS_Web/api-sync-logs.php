@@ -1,5 +1,5 @@
 <?php
-include 'dbcon.php';
+include 'pages/dbcon.php';
 
 $query = "SELECT * FROM api_sync_logs ORDER BY created_at DESC";
 $result = mysqli_query($con, $query);
@@ -67,11 +67,11 @@ $result = mysqli_query($con, $query);
 
     <tr>
         <th>ID</th>
-        <th>Source System</th>
-        <th>Target System</th>
-        <th>Action</th>
+        <th>Resident Name</th>
+        <th>Endpoint</th>
+        <th>Request Type</th>
         <th>Status</th>
-        <th>Message</th>
+        <th>Response Text</th>
         <th>Date Created</th>
     </tr>
 
@@ -83,19 +83,13 @@ $result = mysqli_query($con, $query);
     <tr>
 
         <td><?php echo $row['id']; ?></td>
-
-        <td><?php echo $row['source_system']; ?></td>
-
-        <td><?php echo $row['target_system']; ?></td>
-
-        <td><?php echo $row['action']; ?></td>
-
+        <td><?php echo $row['resident_name']; ?></td>
+        <td><?php echo $row['endpoint']; ?></td>
+        <td><?php echo $row['request_type']; ?></td>
         <td class="<?php echo strtolower($row['status']); ?>">
-            <?php echo $row['status']; ?>
+        <?php echo $row['status']; ?>
         </td>
-
-        <td><?php echo $row['message']; ?></td>
-
+        <td><?php echo $row['response_text']; ?></td>
         <td><?php echo $row['created_at']; ?></td>
 
     </tr>

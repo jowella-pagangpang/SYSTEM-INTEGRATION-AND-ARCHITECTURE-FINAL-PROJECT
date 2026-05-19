@@ -3,19 +3,19 @@
 bin/
 obj/
 
+# NuGet Packages
+packages/
+
+# User-specific
+*.user
+*.suo
+
 # Build files
 Debug/
 Release/
 
-# Cache
-*.cache
-
-# User files
-*.user
-*.suo
-
-# Node modules
-node_modules/
+# SQL Server
+SqlServerTypes/
 
 # Logs
 *.log

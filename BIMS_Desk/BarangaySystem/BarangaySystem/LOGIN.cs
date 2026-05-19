@@ -24,9 +24,14 @@ namespace BarangaySystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LOGIN st = new LOGIN();
-            this.Hide();
-            st.ShowDialog();
+            textBox1.ForeColor = Color.Silver;
+            textBox1.Text = "Enter Username:";
+
+            textBox2.UseSystemPasswordChar = false;
+            textBox2.ForeColor = Color.Silver;
+            textBox2.Text = "Enter Password:";
+
+            this.ActiveControl = label1;
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
@@ -39,26 +44,17 @@ namespace BarangaySystem
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void LOGIN_Load(object sender, EventArgs e)
         {
+            textBox2.UseSystemPasswordChar = false;
             this.ActiveControl = label1;
             clsMySQL.sql_con.Close();
             clsMySQL.sql_con.Open();
         }
 
-        private void LOGIN_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void LOGIN_Leave(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
@@ -73,50 +69,64 @@ namespace BarangaySystem
         {
 
             if (textBox2.Text == "Enter Password:")
+            {
                 textBox2.Text = "";
-            textBox2.ForeColor = Color.Black;
+                textBox2.ForeColor = Color.Black;
+                textBox2.UseSystemPasswordChar = true;
+            }
         }
 
         private void textBox2_Leave(object sender, EventArgs e)
         {
             if (textBox2.Text == "")
             {
+                textBox2.UseSystemPasswordChar = false;
                 textBox2.ForeColor = Color.Silver;
-                textBox2.Text = "Enter Username:";
+                textBox2.Text = "Enter Password:";
             }
         }
         private void login(String username, String password)
         {
-            sql = "SELECT  * FROM tbadmin WHERE username like '" + username + "' AND password = '" + password + "'";
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            MySqlDataReader rd = sql_cmd.ExecuteReader();
-            while (rd.Read())
+            if (username == "Enter Username:" || password == "Enter Password:" ||
+        string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                usern = rd["username"].ToString();
-                pass = rd["password"].ToString();
+                MessageBox.Show("Please fill up all the requirements", "Fill up",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            rd.Close();
 
-            if (username == usern && password == pass)
-            {
-                MessageBox.Show("Admin have successfully logged in");
-                sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Login', 'Admin')";
-                sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-                sql_cmd.ExecuteNonQuery();
-                Form1 main = new Form1();
-                this.Hide();
-                main.ShowDialog();
+            string query = "SELECT username, password FROM tbadmin WHERE username = @username AND password = @password";
 
+            using (MySqlCommand cmd = new MySqlCommand(query, clsMySQL.sql_con))
+            {
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
 
+                using (MySqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        rd.Close();
+
+                        MessageBox.Show("Admin has successfully logged in");
+
+                        string historyQuery = "INSERT INTO tbhistory(timeanddate, activity, username) VALUES(now(), 'Login', @username)";
+                        using (MySqlCommand historyCmd = new MySqlCommand(historyQuery, clsMySQL.sql_con))
+                        {
+                            historyCmd.Parameters.AddWithValue("@username", username);
+                            historyCmd.ExecuteNonQuery();
+                        }
+
+                        Form1 main = new Form1();
+                        this.Hide();
+                        main.ShowDialog();
+                        return;
+                    }
+                }
             }
-            else if (username == "Enter Username:" || pass == "Enter Password:")
-            {
-                MessageBox.Show("Please fill up all the requirements", "Fill up", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                MessageBox.Show("Invalid Username or Password", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            MessageBox.Show("Invalid Username or Password", "Invalid",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
@@ -125,6 +135,11 @@ namespace BarangaySystem
             {
                 login(textBox1.Text, textBox2.Text);
             }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)

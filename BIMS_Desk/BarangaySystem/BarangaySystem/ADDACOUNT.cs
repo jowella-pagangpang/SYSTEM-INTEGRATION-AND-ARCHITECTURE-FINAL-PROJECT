@@ -176,7 +176,7 @@ namespace BarangaySystem
             sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Logout', 'Admin')";
             sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
             sql_cmd.ExecuteNonQuery();
-            start st = new start();
+            LOGIN st = new LOGIN();
             this.Hide();
             st.ShowDialog();
         }

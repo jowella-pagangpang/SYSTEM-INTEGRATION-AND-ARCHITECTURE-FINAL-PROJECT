@@ -77,7 +77,7 @@ namespace BarangaySystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            start st = new start();
+            LOGIN st = new LOGIN();
             this.Hide();
             st.ShowDialog();
         }

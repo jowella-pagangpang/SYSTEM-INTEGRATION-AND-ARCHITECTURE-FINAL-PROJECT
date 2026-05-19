@@ -359,7 +359,7 @@ tx1.Text, tx2.Text, tx3.Text, tx4.Text, tx5.Text, tx6.Text, tx7.Text, pic, srcID
             sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Logout', 'Admin')";
             sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
             sql_cmd.ExecuteNonQuery();
-            start st = new start();
+            LOGIN st = new LOGIN();
             this.Hide();
             st.ShowDialog();
         }

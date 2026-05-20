@@ -102,7 +102,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(659, 0);
+            this.label3.Location = new System.Drawing.Point(658, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 28);
             this.label3.TabIndex = 9;
@@ -122,9 +122,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(983, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(939, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(33, 25);
+            this.pictureBox3.Size = new System.Drawing.Size(56, 37);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 20;
             this.pictureBox3.TabStop = false;
@@ -277,26 +277,28 @@
             // 
             // button12
             // 
+            this.button12.BackColor = System.Drawing.Color.RosyBrown;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.Black;
             this.button12.Location = new System.Drawing.Point(303, 385);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(92, 28);
+            this.button12.Size = new System.Drawing.Size(92, 41);
             this.button12.TabIndex = 30;
             this.button12.Text = "Cancel";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
+            this.button11.BackColor = System.Drawing.Color.LightGreen;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.Black;
             this.button11.Location = new System.Drawing.Point(411, 385);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(92, 28);
+            this.button11.Size = new System.Drawing.Size(92, 41);
             this.button11.TabIndex = 29;
             this.button11.Text = "Save";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // ggg
@@ -515,9 +517,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1022, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(1001, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(33, 25);
+            this.pictureBox2.Size = new System.Drawing.Size(54, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;

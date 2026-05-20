@@ -164,5 +164,44 @@ namespace BarangaySystem
             this.Hide();
             st.ShowDialog();
         }
+
+        private void clrLogs_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+        "Delete all system logs?",
+        "Confirm",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (clsMySQL.sql_con.State == ConnectionState.Closed)
+                    {
+                        clsMySQL.sql_con.Open();
+                    }
+
+                    string sql = "DELETE FROM tbhistory";
+
+                    MySqlCommand cmd =
+                        new MySqlCommand(sql, clsMySQL.sql_con);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show(
+                        "All logs cleared successfully.",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    showList(); // reload DataGridView
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

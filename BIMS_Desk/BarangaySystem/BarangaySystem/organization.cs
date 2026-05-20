@@ -135,14 +135,7 @@ namespace BarangaySystem
             lo.ShowDialog();
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ADDACOUNT add = new ADDACOUNT();
-            this.Hide();
-            add.ShowDialog();
-        }
-
-        
+                
         private void button7_Click(object sender, EventArgs e)
         {
             sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Logout', 'Admin')";

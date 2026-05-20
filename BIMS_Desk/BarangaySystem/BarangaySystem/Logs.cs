@@ -141,14 +141,7 @@ namespace BarangaySystem
             or.ShowDialog();
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ADDACOUNT add = new ADDACOUNT();
-            this.Hide();
-            add.ShowDialog(); 
-        }
-
-        
+               
 
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
@@ -168,10 +161,10 @@ namespace BarangaySystem
         private void clrLogs_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-        "Delete all system logs?",
-        "Confirm",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Warning);
+            "Delete all logs?",
+            "Confirm",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
@@ -190,12 +183,9 @@ namespace BarangaySystem
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show(
-                        "All logs cleared successfully.",
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                        "Logs cleared successfully.");
 
-                    showList(); // reload DataGridView
+                    showList(); // or imong refresh function
                 }
                 catch (Exception ex)
                 {

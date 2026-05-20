@@ -69,13 +69,7 @@ namespace BarangaySystem
             l.ShowDialog();
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ADDACOUNT ac = new ADDACOUNT();
-            this.Hide();
-            ac.ShowDialog();
-        }
-
+       
         
         private void Form1_Load(object sender, EventArgs e)
         {

@@ -36,7 +36,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -119,7 +118,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(254, 51);
+            this.label2.Size = new System.Drawing.Size(249, 50);
             this.label2.TabIndex = 9;
             this.label2.Text = "Organization";
             // 
@@ -139,7 +138,7 @@
             this.button4.BackColor = System.Drawing.Color.Gray;
             this.button4.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(18, 425);
+            this.button4.Location = new System.Drawing.Point(18, 452);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(199, 37);
             this.button4.TabIndex = 7;
@@ -152,7 +151,7 @@
             this.button5.BackColor = System.Drawing.Color.Gray;
             this.button5.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(18, 388);
+            this.button5.Location = new System.Drawing.Point(18, 405);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(199, 37);
             this.button5.TabIndex = 6;
@@ -160,25 +159,12 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Gray;
-            this.button6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(18, 314);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(199, 37);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Edit/ Delete Residence";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Gray;
             this.button3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(18, 278);
+            this.button3.Location = new System.Drawing.Point(18, 308);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(199, 37);
             this.button3.TabIndex = 4;
@@ -191,7 +177,7 @@
             this.button1.BackColor = System.Drawing.Color.Gray;
             this.button1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(18, 202);
+            this.button1.Location = new System.Drawing.Point(18, 211);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(199, 37);
             this.button1.TabIndex = 2;
@@ -231,16 +217,15 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 33);
+            this.panel1.Location = new System.Drawing.Point(0, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1062, 552);
+            this.panel1.Size = new System.Drawing.Size(1062, 600);
             this.panel1.TabIndex = 18;
             // 
             // button9
@@ -248,7 +233,7 @@
             this.button9.BackColor = System.Drawing.Color.Gray;
             this.button9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(18, 498);
+            this.button9.Location = new System.Drawing.Point(18, 551);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(199, 37);
             this.button9.TabIndex = 14;
@@ -261,7 +246,7 @@
             this.button10.BackColor = System.Drawing.Color.Gray;
             this.button10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(18, 351);
+            this.button10.Location = new System.Drawing.Point(18, 356);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(199, 37);
             this.button10.TabIndex = 13;
@@ -274,7 +259,7 @@
             this.button8.BackColor = System.Drawing.Color.Gray;
             this.button8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(18, 461);
+            this.button8.Location = new System.Drawing.Point(18, 501);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(199, 37);
             this.button8.TabIndex = 11;
@@ -301,7 +286,7 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Location = new System.Drawing.Point(236, 130);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(823, 419);
+            this.panel4.Size = new System.Drawing.Size(823, 458);
             this.panel4.TabIndex = 9;
             // 
             // panel6
@@ -331,7 +316,7 @@
             this.panel6.Controls.Add(this.tx1);
             this.panel6.Location = new System.Drawing.Point(13, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(803, 407);
+            this.panel6.Size = new System.Drawing.Size(803, 442);
             this.panel6.TabIndex = 12;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
@@ -339,7 +324,7 @@
             // 
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.Black;
-            this.button12.Location = new System.Drawing.Point(301, 350);
+            this.button12.Location = new System.Drawing.Point(303, 385);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(92, 28);
             this.button12.TabIndex = 30;
@@ -351,7 +336,7 @@
             // 
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.Black;
-            this.button11.Location = new System.Drawing.Point(409, 350);
+            this.button11.Location = new System.Drawing.Point(411, 385);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(92, 28);
             this.button11.TabIndex = 29;
@@ -564,7 +549,7 @@
             this.button2.BackColor = System.Drawing.Color.Gray;
             this.button2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(18, 241);
+            this.button2.Location = new System.Drawing.Point(18, 258);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(199, 37);
             this.button2.TabIndex = 3;
@@ -588,7 +573,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(1062, 585);
+            this.ClientSize = new System.Drawing.Size(1062, 643);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -621,7 +606,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;

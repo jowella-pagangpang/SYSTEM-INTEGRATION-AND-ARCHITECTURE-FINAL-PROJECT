@@ -155,5 +155,15 @@ namespace BarangaySystem
             this.Hide();
             st.ShowDialog();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tx13_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

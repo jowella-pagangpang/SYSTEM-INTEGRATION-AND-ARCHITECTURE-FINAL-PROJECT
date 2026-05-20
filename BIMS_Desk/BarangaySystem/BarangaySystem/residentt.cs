@@ -211,6 +211,11 @@ namespace BarangaySystem
             this.Hide();
             st.ShowDialog();
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
+    }
     }
 

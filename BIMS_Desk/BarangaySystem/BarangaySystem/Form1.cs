@@ -53,12 +53,7 @@ namespace BarangaySystem
             s.ShowDialog();
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            TRANNSACTIO T = new TRANNSACTIO();
-            this.Hide();
-            T.ShowDialog();
-        }
+       
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -81,13 +76,7 @@ namespace BarangaySystem
             ac.ShowDialog();
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            MANAGEACCOUNT mn = new MANAGEACCOUNT();
-            this.Hide();
-            mn.ShowDialog();
-        }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             this.ActiveControl = label1;

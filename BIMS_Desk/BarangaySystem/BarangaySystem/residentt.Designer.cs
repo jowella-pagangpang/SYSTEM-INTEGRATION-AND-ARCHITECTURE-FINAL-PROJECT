@@ -640,7 +640,7 @@
             this.button9.TabIndex = 25;
             this.button9.Text = "Manage Account";
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+           // this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 

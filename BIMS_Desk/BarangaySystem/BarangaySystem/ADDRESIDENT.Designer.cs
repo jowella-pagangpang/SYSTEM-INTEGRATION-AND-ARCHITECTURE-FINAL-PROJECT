@@ -75,7 +75,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -594,7 +593,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.panel4);
@@ -611,19 +609,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1062, 608);
             this.panel1.TabIndex = 10;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Gray;
-            this.button9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(18, 559);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(199, 37);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "Manage Account";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -729,7 +714,6 @@
         private System.Windows.Forms.TextBox tx3;
         private System.Windows.Forms.TextBox tx2;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tx9;

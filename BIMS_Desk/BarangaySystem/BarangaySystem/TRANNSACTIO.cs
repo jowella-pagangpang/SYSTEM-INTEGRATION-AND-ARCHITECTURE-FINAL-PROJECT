@@ -111,24 +111,8 @@ namespace BarangaySystem
             st.ShowDialog();
         }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-            Form2 t2 = new Form2();
-       
-            t2.ShowDialog();
-        }
+        
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-            Form3 q = new Form3();
-            q.ShowDialog();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            Form4 a = new Form4();
-
-            a.ShowDialog();
-        }
+        
     }
 }

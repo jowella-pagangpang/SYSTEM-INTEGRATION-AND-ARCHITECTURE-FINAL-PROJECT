@@ -138,12 +138,7 @@ namespace BarangaySystem
             ed.ShowDialog();
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            TRANNSACTIO tr = new TRANNSACTIO();
-            this.Hide();
-            tr.ShowDialog();
-        }
+        
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -164,12 +159,7 @@ namespace BarangaySystem
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            MANAGEACCOUNT ma = new MANAGEACCOUNT();
-            this.Hide();
-            ma.ShowDialog();
-        }
+       
 
         private void button7_Click(object sender, EventArgs e)
         {

@@ -307,7 +307,6 @@
             this.button13.TabIndex = 8;
             this.button13.Text = "Certificate of Residency";
             this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -320,7 +319,6 @@
             this.button12.TabIndex = 7;
             this.button12.Text = "Certificate of Issuance";
             this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -333,7 +331,6 @@
             this.button11.TabIndex = 6;
             this.button11.Text = "Request Blotter";
             this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button2
             // 

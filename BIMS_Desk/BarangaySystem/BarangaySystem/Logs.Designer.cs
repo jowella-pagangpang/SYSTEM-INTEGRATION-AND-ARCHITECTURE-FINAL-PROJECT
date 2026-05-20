@@ -245,21 +245,19 @@
             this.button9.TabIndex = 14;
             this.button9.Text = "Manage Account";
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
-            this.button10.BackColor = System.Drawing.Color.Gray;
-            this.button10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(18, 351);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(199, 37);
-            this.button10.TabIndex = 13;
-            this.button10.Text = "Tansaction and Files";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
+            //this.button10.BackColor = System.Drawing.Color.Gray;
+            //this.button10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.button10.ForeColor = System.Drawing.Color.White;
+            //this.button10.Location = new System.Drawing.Point(18, 351);
+            //this.button10.Name = "button10";
+            //this.button10.Size = new System.Drawing.Size(199, 37);
+            //this.button10.TabIndex = 13;
+            //this.button10.Text = "Tansaction and Files";
+            //this.button10.UseVisualStyleBackColor = false;
+            // // 
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.Gray;

@@ -239,7 +239,6 @@
             this.button9.TabIndex = 14;
             this.button9.Text = "Manage Account";
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -252,7 +251,7 @@
             this.button10.TabIndex = 13;
             this.button10.Text = "Tansaction and Files";
             this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            //this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button8
             // 

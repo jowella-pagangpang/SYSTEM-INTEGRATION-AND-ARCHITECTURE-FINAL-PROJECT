@@ -119,12 +119,7 @@ namespace BarangaySystem
             ed.ShowDialog();
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            TRANNSACTIO tr = new TRANNSACTIO();
-            this.Hide();
-            tr.ShowDialog();
-        }
+       
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -147,13 +142,7 @@ namespace BarangaySystem
             add.ShowDialog();
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            MANAGEACCOUNT mana = new MANAGEACCOUNT();
-            this.Hide();
-            mana.ShowDialog();
-        }
-
+        
         private void button7_Click(object sender, EventArgs e)
         {
             sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Logout', 'Admin')";

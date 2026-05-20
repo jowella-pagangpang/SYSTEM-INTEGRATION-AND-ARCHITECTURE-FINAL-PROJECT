@@ -76,18 +76,17 @@
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -555,6 +554,19 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Search:";
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Gray;
+            this.button6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(307, 428);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(199, 37);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Edit/ Delete Residence";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -611,7 +623,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button4);
@@ -628,19 +639,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1062, 610);
             this.panel1.TabIndex = 10;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Gray;
-            this.button9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(19, 561);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(199, 37);
-            this.button9.TabIndex = 25;
-            this.button9.Text = "Manage Account";
-            this.button9.UseVisualStyleBackColor = false;
-           // this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -693,19 +691,6 @@
             this.button5.Text = "Organization";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Gray;
-            this.button6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(307, 428);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(199, 37);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "Edit/ Delete Residence";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button3
             // 
@@ -856,7 +841,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label lb12;
         private System.Windows.Forms.Label lb11;
         private System.Windows.Forms.Label lb10;

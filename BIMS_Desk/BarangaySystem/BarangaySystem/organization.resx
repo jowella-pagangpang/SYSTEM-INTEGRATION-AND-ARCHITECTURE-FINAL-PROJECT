@@ -121,7 +121,7 @@
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFIAAAAuCAYAAAC7zE4hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
-        cwAAEnMBjCK5BwAAAI5JREFUaEPty7EJACAAxEDHdlPH0QVSGBBs8nBN4MeYa+cBjPEwxsMYD2M8jPEw
+        cgAAEnIBXmVb4wAAAI5JREFUaEPty7EJACAAxEDHdlPH0QVSGBBs8nBN4MeYa+cBjPEwxsMYD2M8jPEw
         xsMYD2M8jPEwxsMYD2M8jPEwxsMYD2M8jPEwxsMYD2M8jPEwxsP40e3o+xXGeBjjYYyHMR7GeBjjYYyH
         MR7GeBjjYYyHMR7GeBjjYYyHMR7GeBjjYYyHMR7GeBgjrX0AWP8IE/w3YQYAAAAASUVORK5CYII=
 </value>
@@ -129,7 +129,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAeAAAAHtCAYAAADBSq1LAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxIAAAsSAdLdfvwAAP+WSURBVHhe7J0HfBRV+7aH3kJ6
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxEAAAsRAX9kX5EAAP+WSURBVHhe7J0HfBRV+7aH3kJ6
         stmW7b2mh957R5r03ntH6UWQKggCoqIUG1bsiooKFqSK9E4gkAKk9+T+nnM2G4rxr75FXz5mf17MnjNl
         Z3bjXHPPOTMjABARERERERH5mym3UkREREREROS/S7mVIiIify8lpdytK+aUlJQIKKFyAVEMoSAv31Mm
         1j2zVqhVw2doBaFi5yiXW0hOvFE2fyFKhCL2vnTasuWXlu9+joiIyD9FuZUiIiJ/L78n4JycHI8wi2h8
@@ -6397,7 +6397,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFUAAAAxCAYAAACrkOUWAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
-        cwAAEnMBjCK5BwAAANtJREFUeF7t1jsKwzAQAFFdwZ37HM99cO8Tpgi6Qtq0bhS2SEhAuNKQNYzgVatq
+        cgAAEnIBXmVb4wAAANtJREFUeF7t1jsKwzAQAFFdwZ37HM99cO8Tpgi6Qtq0bhS2SEhAuNKQNYzgVatq
         QJ8yb7VprFLW2h7TRYMYFWBUgFEBRgUYFWBUgFEBRgUYFWBUgFEBRgUYFWBUgFEBRgUYFZA26n67t+dy
         7c5CzGJPb/ZvaaNGtFi9sEezDFIf/1687EFD+jv1O+IZgoZTPFTvmLGyBw1GBXj8AT5UgLRRj+JlD5s2
         qp9//TAqwKgAowKMCjAqwKgAowKMCjAqwKgAowKMCjAqwKgAowKMCjAqwKiAT1SNM2+1vQCbO8TtgZSa

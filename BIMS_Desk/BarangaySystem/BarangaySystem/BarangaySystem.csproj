@@ -116,12 +116,6 @@
     <Compile Include="Logs.Designer.cs">
       <DependentUpon>Logs.cs</DependentUpon>
     </Compile>
-    <Compile Include="MANAGE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MANAGE.Designer.cs">
-      <DependentUpon>MANAGE.cs</DependentUpon>
-    </Compile>
     <Compile Include="organization.cs">
       <SubType>Form</SubType>
     </Compile>

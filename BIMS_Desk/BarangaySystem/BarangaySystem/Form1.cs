@@ -79,12 +79,20 @@ namespace BarangaySystem
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.ActiveControl = label1;
+            this.ActiveControl = null;
             DateTime now = DateTime.Now;
             label3.Text = now.ToString();
 
             clsMySQL.sql_con.Close();
             clsMySQL.sql_con.Open();
+
+            if (clsMySQL.sql_con.State == ConnectionState.Closed)
+            {
+                clsMySQL.sql_con.Open();
+            }
+
+            lblResidents.Text = GetCount("tbresident").ToString();
+            lblTotalLogs.Text = GetCount("tbhistory").ToString();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -120,6 +128,15 @@ namespace BarangaySystem
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+
+        private int GetCount(string tableName)
+        {
+            string query = "SELECT COUNT(*) FROM " + tableName;
+
+            MySqlCommand cmd = new MySqlCommand(query, clsMySQL.sql_con);
+            return Convert.ToInt32(cmd.ExecuteScalar());
         }
     }
 }

@@ -15,7 +15,7 @@ namespace BarangaySystem
 
         public static string usern = "";
         public static string server = "127.0.0.1";
-        public static string database = "dbbarangay";
+        public static string database = "system_integration_db";
         public static string user = "root";
         public static string pass = "";
         public static string constring = "server = " + server + ";" + "database = " + database + ";" + "uid = " + user + ";" + "password = " + pass + ";";

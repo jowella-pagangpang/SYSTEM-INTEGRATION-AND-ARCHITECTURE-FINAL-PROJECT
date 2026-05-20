@@ -67,23 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADDACOUNT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ADDACOUNT.Designer.cs">
-      <DependentUpon>ADDACOUNT.cs</DependentUpon>
-    </Compile>
     <Compile Include="ADDRESIDENT.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ADDRESIDENT.Designer.cs">
       <DependentUpon>ADDRESIDENT.cs</DependentUpon>
-    </Compile>
-    <Compile Include="changepass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="changepass.Designer.cs">
-      <DependentUpon>changepass.cs</DependentUpon>
     </Compile>
     <Compile Include="clsMySQL.cs" />
     <Compile Include="EDIT.cs">
@@ -91,12 +79,6 @@
     </Compile>
     <Compile Include="EDIT.Designer.cs">
       <DependentUpon>EDIT.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forgotpass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forgotpass.Designer.cs">
-      <DependentUpon>forgotpass.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -131,57 +113,12 @@
     <Compile Include="residentt.Designer.cs">
       <DependentUpon>residentt.cs</DependentUpon>
     </Compile>
-    <Compile Include="security.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="security.Designer.cs">
-      <DependentUpon>security.cs</DependentUpon>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="userlogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="userlogin.Designer.cs">
-      <DependentUpon>userlogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="USERMAIN1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="USERMAIN1.Designer.cs">
-      <DependentUpon>USERMAIN1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="userorg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="userorg.Designer.cs">
-      <DependentUpon>userorg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="USERPROFILE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="USERPROFILE.Designer.cs">
-      <DependentUpon>USERPROFILE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="USERRESIDENT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="USERRESIDENT.Designer.cs">
-      <DependentUpon>USERRESIDENT.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="ADDACOUNT.resx">
-      <DependentUpon>ADDACOUNT.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ADDRESIDENT.resx">
       <DependentUpon>ADDRESIDENT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="changepass.resx">
-      <DependentUpon>changepass.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EDIT.resx">
       <DependentUpon>EDIT.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forgotpass.resx">
-      <DependentUpon>forgotpass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -209,24 +146,6 @@
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="residentt.resx">
       <DependentUpon>residentt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="security.resx">
-      <DependentUpon>security.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="userlogin.resx">
-      <DependentUpon>userlogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="USERMAIN1.resx">
-      <DependentUpon>USERMAIN1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="userorg.resx">
-      <DependentUpon>userorg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="USERPROFILE.resx">
-      <DependentUpon>USERPROFILE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="USERRESIDENT.resx">
-      <DependentUpon>USERRESIDENT.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

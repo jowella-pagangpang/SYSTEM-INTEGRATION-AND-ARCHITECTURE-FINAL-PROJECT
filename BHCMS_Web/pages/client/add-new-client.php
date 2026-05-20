@@ -262,11 +262,11 @@ document.addEventListener('click', function(e) {
                                     <label>Complete Address: <code class="text-danger">*</code><br></label>
                                     <select name="purok" class="form-control form-control-sm" required>
                                         <option selected disabled value="">Select Purok</option>
-                                        <option value="Purok 93">Purok 1</option>
-                                        <option value="Purok 94">Purok 2</option>
-                                        <option value="Purok 95">Purok 3</option>
-                                        <option value="Purok 96">Purok 4</option>
-                                        <option value="Purok 97">Purok 5</option>
+                                        <option value="Purok 1">1</option>
+                                        <option value="Purok 2">2</option>
+                                        <option value="Purok 3">3</option>
+                                        <option value="Purok 4">4</option>
+                                        <option value="Purok 5">5</option>
                                     </select>
                                 </div>
                             </div>
@@ -274,7 +274,7 @@ document.addEventListener('click', function(e) {
                                 <div class="form-group">
                                     <label><br></label>
                                     <input name="address" class="form-control form-control-sm" type="text"
-                                        value="Maharlika East, Tagaytay City" readonly>
+                                        value="Basak, San Juan, Southern Leyte" readonly>
                                 </div>
                             </div>
 

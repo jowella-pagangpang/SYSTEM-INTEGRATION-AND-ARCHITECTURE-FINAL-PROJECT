@@ -24,7 +24,7 @@ namespace BarangaySystem
 
         private void ADDRESIDENT_Load(object sender, EventArgs e)
         {
-            this.ActiveControl = label1;
+            this.ActiveControl = null;
             clsMySQL.sql_con.Close();
             clsMySQL.sql_con.Open();
             DateTime now = DateTime.Now;
@@ -152,6 +152,11 @@ namespace BarangaySystem
         }
 
         private void tx13_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

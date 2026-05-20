@@ -32,7 +32,7 @@ namespace BarangaySystem
 
         private void residentt_Load(object sender, EventArgs e)
         {
-            this.ActiveControl = label1;
+            this.ActiveControl = null;
             clsMySQL.sql_con.Close();
             clsMySQL.sql_con.Open();
             showList();

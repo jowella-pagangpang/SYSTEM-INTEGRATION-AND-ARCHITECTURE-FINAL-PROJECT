@@ -138,5 +138,10 @@ namespace BarangaySystem
             MySqlCommand cmd = new MySqlCommand(query, clsMySQL.sql_con);
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

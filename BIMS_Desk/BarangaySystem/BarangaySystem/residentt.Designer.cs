@@ -91,6 +91,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -592,7 +593,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(6, 60);
+            this.label2.Location = new System.Drawing.Point(11, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(318, 41);
             this.label2.TabIndex = 10;
@@ -621,6 +622,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button5);
@@ -641,7 +643,7 @@
             this.button7.BackColor = System.Drawing.Color.Gray;
             this.button7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(19, 459);
+            this.button7.Location = new System.Drawing.Point(21, 482);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(199, 33);
             this.button7.TabIndex = 21;
@@ -654,7 +656,7 @@
             this.button4.BackColor = System.Drawing.Color.Gray;
             this.button4.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(19, 399);
+            this.button4.Location = new System.Drawing.Point(21, 422);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(199, 37);
             this.button4.TabIndex = 20;
@@ -667,7 +669,7 @@
             this.button5.BackColor = System.Drawing.Color.Gray;
             this.button5.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(19, 341);
+            this.button5.Location = new System.Drawing.Point(21, 364);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(199, 37);
             this.button5.TabIndex = 19;
@@ -680,7 +682,7 @@
             this.button3.BackColor = System.Drawing.Color.Gray;
             this.button3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(19, 285);
+            this.button3.Location = new System.Drawing.Point(21, 308);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(199, 37);
             this.button3.TabIndex = 17;
@@ -693,7 +695,7 @@
             this.button2.BackColor = System.Drawing.Color.Gray;
             this.button2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(19, 229);
+            this.button2.Location = new System.Drawing.Point(21, 252);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(199, 37);
             this.button2.TabIndex = 16;
@@ -706,7 +708,7 @@
             this.button1.BackColor = System.Drawing.Color.Gray;
             this.button1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(19, 173);
+            this.button1.Location = new System.Drawing.Point(21, 196);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(199, 37);
             this.button1.TabIndex = 15;
@@ -735,6 +737,17 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(71, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 27);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Admin";
+            // 
             // residentt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -760,6 +773,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -830,5 +844,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.Label lb13;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label1;
     }
 }

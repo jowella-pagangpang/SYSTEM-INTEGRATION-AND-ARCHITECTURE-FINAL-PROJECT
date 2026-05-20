@@ -41,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -188,18 +187,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(18, 169);
+            this.label1.Location = new System.Drawing.Point(73, 162);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 28);
+            this.label1.Size = new System.Drawing.Size(74, 28);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Logged in as Admin";
+            this.label1.Text = "Admin";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(54, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(34, 17);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 121);
+            this.pictureBox1.Size = new System.Drawing.Size(158, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -207,7 +206,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
@@ -224,27 +222,14 @@
             this.panel1.Size = new System.Drawing.Size(1062, 600);
             this.panel1.TabIndex = 18;
             // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Gray;
-            this.button8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(18, 482);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(199, 37);
-            this.button8.TabIndex = 11;
-            this.button8.Text = "Add Account";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.Gray;
             this.button7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(76, 139);
+            this.button7.Location = new System.Drawing.Point(18, 473);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(77, 33);
+            this.button7.Size = new System.Drawing.Size(199, 33);
             this.button7.TabIndex = 10;
             this.button7.Text = "Logout";
             this.button7.UseVisualStyleBackColor = false;
@@ -581,7 +566,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;

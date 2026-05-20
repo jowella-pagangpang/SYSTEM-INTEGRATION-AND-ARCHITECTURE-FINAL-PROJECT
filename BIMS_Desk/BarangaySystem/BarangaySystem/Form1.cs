@@ -79,7 +79,7 @@ namespace BarangaySystem
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.ActiveControl = null;
+            this.ActiveControl = label1;
             DateTime now = DateTime.Now;
             label3.Text = now.ToString();
 

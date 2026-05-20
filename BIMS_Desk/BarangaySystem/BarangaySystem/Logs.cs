@@ -182,7 +182,7 @@ namespace BarangaySystem
                         clsMySQL.sql_con.Open();
                     }
 
-                    string sql = "DELETE FROM tbhistory";
+                    string sql = "TRUNCATE TABLE tbhistory";
 
                     MySqlCommand cmd =
                         new MySqlCommand(sql, clsMySQL.sql_con);

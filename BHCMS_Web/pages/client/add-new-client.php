@@ -103,6 +103,7 @@ function searchBims(query) {
 
 // Auto-fill form when resident is selected
 function selectResident(id, fname, mname, lname, bday, sex, purok) {
+    document.getElementById('bims_resident_id').value = id;
     // Fill name fields
     document.querySelector('input[name="fname"]').value   = fname;
     document.querySelector('input[name="minitial"]').value = mname;
@@ -118,9 +119,9 @@ function selectResident(id, fname, mname, lname, bday, sex, purok) {
     }
 
     // Fill sex radio button
-    if (sex === 'Male') {
+    if (sex === 'Male' || sex === 'M')  {
         document.getElementById('radioPrimary1').checked = true;
-    } else if (sex === 'Female') {
+    } else if (sex === 'Female' || sex === 'F') {
         document.getElementById('radioPrimary2').checked = true;
     }
 
@@ -165,6 +166,7 @@ document.addEventListener('click', function(e) {
 
                             <div>
                                 <input name="id" type="hidden">
+                                <input name="bims_resident_id" id="bims_resident_id" type="hidden">
                             </div>
 
                             <!--BIMS Search Bar-->

@@ -100,45 +100,55 @@ namespace BarangaySystem
         private void login(String username, String password)
         {
             if (username == "Enter Username:" || password == "Enter Password:" ||
-        string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Please fill up all the requirements", "Fill up",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill up all the requirements");
                 return;
             }
 
-            string query = "SELECT username, password FROM tbadmin WHERE username = @username AND password = @password";
-
-            using (MySqlCommand cmd = new MySqlCommand(query, clsMySQL.sql_con))
+            try
             {
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
-
-                using (MySqlDataReader rd = cmd.ExecuteReader())
+                if (clsMySQL.sql_con.State != ConnectionState.Open)
                 {
-                    if (rd.Read())
+                    clsMySQL.sql_con.Open();
+                }
+
+                string query = "SELECT username, password FROM tbadmin WHERE username=@username AND password=@password";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, clsMySQL.sql_con))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
-                        rd.Close();
-
-                        MessageBox.Show("Admin has successfully logged in");
-
-                        string historyQuery = "INSERT INTO tbhistory(timeanddate, activity, username) VALUES(now(), 'Login', @username)";
-                        using (MySqlCommand historyCmd = new MySqlCommand(historyQuery, clsMySQL.sql_con))
+                        if (rd.Read())
                         {
-                            historyCmd.Parameters.AddWithValue("@username", username);
-                            historyCmd.ExecuteNonQuery();
-                        }
+                            rd.Close();
 
-                        Form1 main = new Form1();
-                        this.Hide();
-                        main.ShowDialog();
-                        return;
+                            MessageBox.Show("Admin has successfully logged in");
+
+                            string historyQuery = "INSERT INTO tbhistory(timeanddate, activity, username) VALUES(now(), 'Login', @username)";
+                            using (MySqlCommand historyCmd = new MySqlCommand(historyQuery, clsMySQL.sql_con))
+                            {
+                                historyCmd.Parameters.AddWithValue("@username", username);
+                                historyCmd.ExecuteNonQuery();
+                            }
+
+                            Form1 main = new Form1();
+                            this.Hide();
+                            main.ShowDialog();
+                            return;
+                        }
                     }
                 }
-            }
 
-            MessageBox.Show("Invalid Username or Password", "Invalid",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Username or Password");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database error: " + ex.Message);
+            }
         }
 
         private void textBox2_KeyDown(object sender, KeyEventArgs e)

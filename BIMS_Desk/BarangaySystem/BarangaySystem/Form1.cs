@@ -143,5 +143,21 @@ namespace BarangaySystem
         {
 
         }
+
+                     
+        private void lblResidents_Click(object sender, EventArgs e)
+        {
+            residentt r = new residentt();
+            this.Hide();
+            r.ShowDialog();
+        }
+
+        private void panelLogs_Click_1(object sender, EventArgs e)
+        {
+            Logs l = new Logs();
+            this.Hide();
+            l.ShowDialog();
+        }
     }
+    
 }

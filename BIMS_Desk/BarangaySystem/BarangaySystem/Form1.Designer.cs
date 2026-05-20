@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -39,6 +40,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panelLogs = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lblTotalLogs = new System.Windows.Forms.Label();
+            this.panelResidents = new System.Windows.Forms.Panel();
+            this.lblResidents = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -46,27 +55,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panelResidents = new System.Windows.Forms.Panel();
-            this.panelLogs = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTotalLogs = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lblResidents = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panelLogs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panelResidents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panelResidents.SuspendLayout();
-            this.panelLogs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,6 +88,17 @@
             this.panel1.Size = new System.Drawing.Size(1062, 606);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(78, 161);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 27);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Admin";
             // 
             // button7
             // 
@@ -199,6 +210,96 @@
             this.panel5.TabIndex = 11;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
+            // panelLogs
+            // 
+            this.panelLogs.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelLogs.Controls.Add(this.label5);
+            this.panelLogs.Controls.Add(this.pictureBox5);
+            this.panelLogs.Controls.Add(this.lblTotalLogs);
+            this.panelLogs.Location = new System.Drawing.Point(433, 78);
+            this.panelLogs.Name = "panelLogs";
+            this.panelLogs.Size = new System.Drawing.Size(243, 124);
+            this.panelLogs.TabIndex = 1;
+            this.panelLogs.Click += new System.EventHandler(this.panelLogs_Click_1);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 23);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "System Logs";
+            this.label5.Click += new System.EventHandler(this.panelLogs_Click_1);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(157, 38);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(69, 62);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.panelLogs_Click_1);
+            // 
+            // lblTotalLogs
+            // 
+            this.lblTotalLogs.AutoSize = true;
+            this.lblTotalLogs.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalLogs.Location = new System.Drawing.Point(29, 24);
+            this.lblTotalLogs.Name = "lblTotalLogs";
+            this.lblTotalLogs.Size = new System.Drawing.Size(92, 46);
+            this.lblTotalLogs.TabIndex = 1;
+            this.lblTotalLogs.Text = "000";
+            this.lblTotalLogs.Click += new System.EventHandler(this.panelLogs_Click_1);
+            // 
+            // panelResidents
+            // 
+            this.panelResidents.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelResidents.Controls.Add(this.lblResidents);
+            this.panelResidents.Controls.Add(this.pictureBox4);
+            this.panelResidents.Controls.Add(this.label1);
+            this.panelResidents.Location = new System.Drawing.Point(108, 78);
+            this.panelResidents.Name = "panelResidents";
+            this.panelResidents.Size = new System.Drawing.Size(243, 124);
+            this.panelResidents.TabIndex = 0;
+            this.panelResidents.Click += new System.EventHandler(this.lblResidents_Click);
+            // 
+            // lblResidents
+            // 
+            this.lblResidents.AutoSize = true;
+            this.lblResidents.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResidents.Location = new System.Drawing.Point(15, 24);
+            this.lblResidents.Name = "lblResidents";
+            this.lblResidents.Size = new System.Drawing.Size(92, 46);
+            this.lblResidents.TabIndex = 2;
+            this.lblResidents.Text = "000";
+            this.lblResidents.Click += new System.EventHandler(this.lblResidents_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(132, 30);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(90, 69);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.lblResidents_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Residents";
+            this.label1.Click += new System.EventHandler(this.lblResidents_Click);
+            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.White;
@@ -275,100 +376,6 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // panelResidents
-            // 
-            this.panelResidents.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelResidents.Controls.Add(this.lblResidents);
-            this.panelResidents.Controls.Add(this.pictureBox4);
-            this.panelResidents.Controls.Add(this.label1);
-            this.panelResidents.Location = new System.Drawing.Point(108, 78);
-            this.panelResidents.Name = "panelResidents";
-            this.panelResidents.Size = new System.Drawing.Size(243, 124);
-            this.panelResidents.TabIndex = 0;
-            // 
-            // panelLogs
-            // 
-            this.panelLogs.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelLogs.Controls.Add(this.label5);
-            this.panelLogs.Controls.Add(this.pictureBox5);
-            this.panelLogs.Controls.Add(this.lblTotalLogs);
-            this.panelLogs.Location = new System.Drawing.Point(433, 78);
-            this.panelLogs.Name = "panelLogs";
-            this.panelLogs.Size = new System.Drawing.Size(243, 124);
-            this.panelLogs.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Residents";
-            // 
-            // lblTotalLogs
-            // 
-            this.lblTotalLogs.AutoSize = true;
-            this.lblTotalLogs.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalLogs.Location = new System.Drawing.Point(29, 24);
-            this.lblTotalLogs.Name = "lblTotalLogs";
-            this.lblTotalLogs.Size = new System.Drawing.Size(92, 46);
-            this.lblTotalLogs.TabIndex = 1;
-            this.lblTotalLogs.Text = "000";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(132, 30);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(90, 69);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(157, 38);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(69, 62);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
-            // lblResidents
-            // 
-            this.lblResidents.AutoSize = true;
-            this.lblResidents.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResidents.Location = new System.Drawing.Point(15, 24);
-            this.lblResidents.Name = "lblResidents";
-            this.lblResidents.Size = new System.Drawing.Size(92, 46);
-            this.lblResidents.TabIndex = 2;
-            this.lblResidents.Text = "000";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 23);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "System Logs";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(78, 161);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 27);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Admin";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -388,17 +395,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panelLogs.ResumeLayout(false);
+            this.panelLogs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panelResidents.ResumeLayout(false);
+            this.panelResidents.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panelResidents.ResumeLayout(false);
-            this.panelResidents.PerformLayout();
-            this.panelLogs.ResumeLayout(false);
-            this.panelLogs.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -48,10 +48,22 @@ namespace BarangaySystem
 
         private void LOGIN_Load(object sender, EventArgs e)
         {
-            textBox2.UseSystemPasswordChar = false;
             this.ActiveControl = label1;
+
             clsMySQL.sql_con.Close();
             clsMySQL.sql_con.Open();
+
+            // Built-in admin account
+            textBox1.ForeColor = Color.Black;
+            textBox1.Text = "admin";
+
+            textBox2.ForeColor = Color.Black;
+            textBox2.Text = "admin";
+
+            // Hidden password by default
+            textBox2.UseSystemPasswordChar = true;
+
+            chkShowPassword.Checked = false;
         }
 
         
@@ -140,6 +152,20 @@ namespace BarangaySystem
         private void button2_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowPassword.Checked)
+            {
+                // Show password
+                textBox2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Hide password
+                textBox2.UseSystemPasswordChar = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -90,7 +91,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(318, 366);
+            this.button1.Location = new System.Drawing.Point(280, 394);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(79, 40);
             this.button1.TabIndex = 13;
@@ -100,7 +101,7 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(91, 366);
+            this.cancel.Location = new System.Drawing.Point(95, 394);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(79, 40);
             this.cancel.TabIndex = 14;
@@ -118,12 +119,25 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // chkShowPassword
+            // 
+            this.chkShowPassword.AutoSize = true;
+            this.chkShowPassword.ForeColor = System.Drawing.Color.White;
+            this.chkShowPassword.Location = new System.Drawing.Point(64, 344);
+            this.chkShowPassword.Name = "chkShowPassword";
+            this.chkShowPassword.Size = new System.Drawing.Size(125, 20);
+            this.chkShowPassword.TabIndex = 16;
+            this.chkShowPassword.Text = "Show Password";
+            this.chkShowPassword.UseVisualStyleBackColor = true;
+            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
+            // 
             // LOGIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(490, 469);
+            this.Controls.Add(this.chkShowPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.button1);
@@ -152,5 +166,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox chkShowPassword;
     }
 }

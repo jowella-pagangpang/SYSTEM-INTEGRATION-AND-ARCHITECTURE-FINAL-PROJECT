@@ -157,14 +157,6 @@ if (!isset($_SESSION['type'])) {
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                          <a href="../../api-sync-logs.php" class="nav-link">
-                            <i class="nav-icon fas fa-sync-alt"></i>
-                            <p>
-                              API Sync Logs
-                            </p>
-                            </a>
-                        </li>
                     </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -203,8 +195,59 @@ if (!isset($_SESSION['type'])) {
                 <p class="font-weight-bold" style="font-size:22px;">TOTAL CLIENTS</p>
                 <!-- Small boxes (Stat box) -->
                <div class="row">
+<?php
+$total_clients_query = mysqli_query($con, "SELECT COUNT(*) AS total FROM client");
+$total_clients_row = mysqli_fetch_assoc($total_clients_query);
+$total_clients = $total_clients_row['total'];
 
+$total_checkups = 0;
+
+$checkup_tables = [
+  'immunization',
+  'deworming',
+  'nutrition2',
+  'maternal',
+  'postpartum',
+  'sickchildren'
+];
+
+foreach ($checkup_tables as $table) {
+  $checkup_query = mysqli_query($con, "SELECT COUNT(*) AS total FROM $table");
+  $checkup_row = mysqli_fetch_assoc($checkup_query);
+  $total_checkups += $checkup_row['total'];
+}
+?>
+               <div class="col-lg-6 col-md-6">
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h1 class="font-weight-bold"><?php echo $total_clients; ?></h1>
+        <p class="font-weight-bold">Total Registered Clients</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <a href="../client/client-list.php" class="small-box-footer">
+        View Clients <i class="fas fa-arrow-circle-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-6">
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h1 class="font-weight-bold"><?php echo $total_checkups; ?></h1>
+        <p class="font-weight-bold">General Consultations</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-stethoscope"></i>
+      </div>
+      <a href="../client/general-consult.php" class="small-box-footer">
+        View Reports <i class="fas fa-arrow-circle-right"></i>
+      </a>
+    </div>
+  </div>
                <div class="col-lg-4 col-md-6">
+                
           <!-- small box -->
           <div class="small-box" style="background-color: #90EE90">
             <div class="inner">

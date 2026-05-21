@@ -115,6 +115,16 @@ function selectResident(id, fname, mname, lname, bday, sex, purok) {
         if (!isNaN(date)) {
             let formatted = date.toISOString().split('T')[0];
             document.querySelector('input[name="birth_date"]').value = formatted;
+
+            let today = new Date();
+            let age = today.getFullYear() - date.getFullYear();
+            let m = today.getMonth() - date.getMonth();
+
+            if (m < 0 || (m === 0 && today.getDate() < date.getDate())) {
+                age--;
+            }
+
+            document.querySelector('input[name="age"]').value = age;
         }
     }
 
@@ -223,6 +233,12 @@ document.addEventListener('click', function(e) {
                                     <input name="birth_date" class="form-control form-control-sm" 
                                         type="date" placeholder="Date of Birth" required 
                                         max="<?php echo date('Y-m-d'); ?>">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Age: <code class="text-danger">*</code></label>
+                                    <input type="text" name="age" class="form-control form-control-sm" placeholder="Age" readonly>
                                 </div>
                             </div>
 

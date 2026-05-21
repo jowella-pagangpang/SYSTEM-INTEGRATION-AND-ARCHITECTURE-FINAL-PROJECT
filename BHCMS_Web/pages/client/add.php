@@ -5,6 +5,7 @@ include('../dbcon.php');
 
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
+    $bims_resident_id = $_POST['bims_resident_id'];
     $fname = $_POST['fname'];
     $minitial = $_POST['minitial'];
     $lname = $_POST['lname'];
@@ -14,13 +15,28 @@ if (isset($_POST['submit'])) {
     $purok = $_POST['purok'];
     $address = $_POST['address'];
 
-    mysqli_query($con, "INSERT INTO client
-     VALUES ('$id', '$fname', '$minitial', '$lname', '$birth_date', '$sex', '$mother_name', '$purok', '$address')"); 
+    if (empty($bims_resident_id)) {
+        die("Error: Please select a resident from BIMS first.");
+    }
 
-    header("Location: ".$_SERVER['HTTP_REFERER']);
+    $checkResident = mysqli_query($con, "SELECT id FROM client WHERE bims_resident_id = '$bims_resident_id'");
 
-} 
+    if (mysqli_num_rows($checkResident) > 0) {
+        die("Error: This BIMS resident is already registered as a client.");
+    }
 
+    $insert = mysqli_query($con, "INSERT INTO client
+    (id, bims_resident_id, fname, minitial, lname, birth_date, sex, mother_name, purok, address)
+    VALUES
+    ('$id', '$bims_resident_id', '$fname', '$minitial', '$lname', '$birth_date', '$sex', '$mother_name', '$purok', '$address')");
+
+    if (!$insert) {
+        die("Insert Error: " . mysqli_error($con));
+    }
+
+    header("Location: " . $_SERVER['HTTP_REFERER']);
+    exit;
+}
 
 if (isset($_POST['update'])) {
     $id          = $_POST['id'];

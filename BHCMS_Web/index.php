@@ -71,8 +71,9 @@ session_start();
 
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">
-                        Show
+                        <i id="eyeIcon" class="fas fa-eye"></i>
                       </button>
+                    </div>
                     </div>
                   </div>
                   <div>
@@ -119,15 +120,31 @@ session_start();
 
 </body>
 <script>
-function togglePassword() {
-  var password = document.getElementById("password");
 
-  if (password.type === "password") {
-    password.type = "text";
-  } else {
-    password.type = "password";
-  }
+function togglePassword()
+{
+    let password =
+    document.getElementById("password");
+
+    let eye =
+    document.getElementById("eyeIcon");
+
+    if(password.type === "password")
+    {
+        password.type = "text";
+
+        eye.classList.remove("fa-eye");
+        eye.classList.add("fa-eye-slash");
+    }
+    else
+    {
+        password.type = "password";
+
+        eye.classList.remove("fa-eye-slash");
+        eye.classList.add("fa-eye");
+    }
 }
+
 </script>
 
 </html>

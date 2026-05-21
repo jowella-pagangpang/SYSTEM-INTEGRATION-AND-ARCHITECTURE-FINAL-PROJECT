@@ -64,12 +64,16 @@ session_start();
 
                   
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control text-center" name="username" required autofocus
-                      placeholder="Enter username" autocomplete="off">
+                    <input type="text" class="form-control text-center" name="username" required autofocus value="bhwadmin" utocomplete="off">
                   </div>
                   <div class="input-group mb-3">
-                    <input type="password" class="form-control text-center" name="password" required autofocus
-                      placeholder="Enter password">
+                    <input type="password" class="form-control text-center" name="password" id="password" value="bhwpassword" required>
+
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">
+                        Show
+                      </button>
+                    </div>
                   </div>
                   <div>
                     <button type="submit" class="btn btn-block btn-dark text-white font-weight-bold" name="login1">LOG IN</button>
@@ -114,5 +118,16 @@ session_start();
 
 
 </body>
+<script>
+function togglePassword() {
+  var password = document.getElementById("password");
+
+  if (password.type === "password") {
+    password.type = "text";
+  } else {
+    password.type = "password";
+  }
+}
+</script>
 
 </html>

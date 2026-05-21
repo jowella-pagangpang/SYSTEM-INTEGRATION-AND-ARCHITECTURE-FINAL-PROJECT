@@ -21,7 +21,7 @@ if (!isset($_SESSION['type'])) {
         <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
         <title>Client List</title>
-        <link rel="icon" href="../../img/logo.png">
+        <link rel="icon" href="../../img/basak logo.png">
 
         <style>
         .form-control:focus {

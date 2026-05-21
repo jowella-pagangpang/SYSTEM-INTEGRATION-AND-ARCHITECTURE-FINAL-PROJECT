@@ -56,7 +56,7 @@ if (!isset($_SESSION['type'])) {
     <div class="sidebar">
         <!-- Sidebar panel -->
         <div class="user-panel pb-3 mb-3">
-            <center><img src="../../img/logo.png" style="height: 40%; width: 40%;" alt="logo"></center>
+            <center><img src="../../img/basak logo.png" style="height: 40%; width: 40%;" alt="logo"></center>
         </div>
 
         <!-- Sidebar Menu -->

@@ -18,7 +18,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
     <title>Client Record</title>
-    <link rel="icon" href="../../img/logo.png">
+    <link rel="icon" href="../../img/basak logo.png">
 
     <style>
         .form-control:focus {

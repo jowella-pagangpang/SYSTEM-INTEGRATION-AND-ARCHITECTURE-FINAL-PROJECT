@@ -144,13 +144,14 @@ namespace BarangaySystem
 
          private void button13_Click(object sender, EventArgs e)
          {
-             sID = listView1.FocusedItem.Text;
-             if (sID == "" || sID == null) { return; }
-             else
-             {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a resident first.");
+                return;
+            }
 
-             }
-             {
+            string SID = listView1.SelectedItems[0].Text;
+            {
                  sql = "DELETE FROM tbresident WHERE id=" + sID;
                  sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
                  sql_cmd.ExecuteNonQuery();

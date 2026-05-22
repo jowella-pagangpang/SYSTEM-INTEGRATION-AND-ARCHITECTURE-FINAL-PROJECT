@@ -54,6 +54,9 @@
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\..\..\2nd_SEM\IT312 System Integration and Architecture 2\✔Barangay-Information-Management-System\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
@@ -85,6 +88,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintHhealthRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintHhealthRecord.Designer.cs">
+      <DependentUpon>PrintHhealthRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="LOGIN.cs">
       <SubType>Form</SubType>
@@ -131,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="organization.resx">
       <DependentUpon>organization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintHhealthRecord.resx">
+      <DependentUpon>PrintHhealthRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

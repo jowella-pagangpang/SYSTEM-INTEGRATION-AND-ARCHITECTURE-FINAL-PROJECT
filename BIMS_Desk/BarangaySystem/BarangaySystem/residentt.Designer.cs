@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(residentt));
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnViewHealthRecord = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb13 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -83,6 +84,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -91,7 +93,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -107,11 +110,24 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.btnViewHealthRecord);
             this.panel6.Controls.Add(this.groupBox1);
             this.panel6.Location = new System.Drawing.Point(406, 11);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(410, 399);
+            this.panel6.Size = new System.Drawing.Size(410, 440);
             this.panel6.TabIndex = 12;
+            // 
+            // btnViewHealthRecord
+            // 
+            this.btnViewHealthRecord.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnViewHealthRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewHealthRecord.Location = new System.Drawing.Point(116, 398);
+            this.btnViewHealthRecord.Name = "btnViewHealthRecord";
+            this.btnViewHealthRecord.Size = new System.Drawing.Size(198, 32);
+            this.btnViewHealthRecord.TabIndex = 1;
+            this.btnViewHealthRecord.Text = "View Health Record";
+            this.btnViewHealthRecord.UseVisualStyleBackColor = false;
+            this.btnViewHealthRecord.Click += new System.EventHandler(this.button8_Click);
             // 
             // groupBox1
             // 
@@ -144,10 +160,11 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(11, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(395, 390);
+            this.groupBox1.Size = new System.Drawing.Size(395, 388);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal Information";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lb13
             // 
@@ -431,7 +448,7 @@
             this.panel4.Controls.Add(this.button6);
             this.panel4.Location = new System.Drawing.Point(236, 130);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(823, 468);
+            this.panel4.Size = new System.Drawing.Size(823, 530);
             this.panel4.TabIndex = 9;
             // 
             // panel5
@@ -442,7 +459,7 @@
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(12, 11);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(388, 399);
+            this.panel5.Size = new System.Drawing.Size(388, 440);
             this.panel5.TabIndex = 11;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -468,7 +485,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(4, 40);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(379, 354);
+            this.listView1.Size = new System.Drawing.Size(379, 397);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -558,7 +575,7 @@
             this.button6.BackColor = System.Drawing.Color.Gray;
             this.button6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(307, 428);
+            this.button6.Location = new System.Drawing.Point(308, 466);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(199, 37);
             this.button6.TabIndex = 18;
@@ -633,10 +650,21 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 42);
+            this.panel1.Location = new System.Drawing.Point(0, 36);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1062, 610);
+            this.panel1.Size = new System.Drawing.Size(1062, 672);
             this.panel1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(71, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 27);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Admin";
             // 
             // button7
             // 
@@ -737,23 +765,26 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // label1
+            // printDocument1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(71, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 27);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Admin";
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // residentt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(1062, 652);
+            this.ClientSize = new System.Drawing.Size(1062, 708);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -845,5 +876,8 @@
         private System.Windows.Forms.Label lb13;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnViewHealthRecord;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

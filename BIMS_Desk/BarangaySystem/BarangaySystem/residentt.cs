@@ -1,23 +1,32 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System.Net;
+using Newtonsoft.Json.Linq;
+using System.Drawing.Printing;
 
 namespace BarangaySystem
 {
+
     public partial class residentt : Form
     {
         public string sID;
         public string sql = "";
         public string pic;
         public MySqlCommand sql_cmd = new MySqlCommand();
-        
+        private string healthRecordText = "";
+
+
         public residentt()
         {
             InitializeComponent();
@@ -42,14 +51,14 @@ namespace BarangaySystem
 
         private void showList()
         {
-              sql = "SELECT * FROM tbresident";
+            sql = "SELECT * FROM tbresident";
             sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
             MySqlDataReader rd = sql_cmd.ExecuteReader();
             listView1.Items.Clear();
             while (rd.Read())
             {
                 listView1.Items.Add(rd["id"].ToString());
-               listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["surname"].ToString());
+                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["surname"].ToString());
                 listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["fname"].ToString());
                 listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["mname"].ToString());
                 listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["bday"].ToString());
@@ -91,7 +100,7 @@ namespace BarangaySystem
                 lb11.Text = rd["occupation"].ToString();
                 lb12.Text = rd["houseno"].ToString();
                 lb13.Text = rd["purok"].ToString();
-             
+
             }
             rd.Close();
 
@@ -162,7 +171,7 @@ namespace BarangaySystem
             ad.ShowDialog();
         }
 
-       
+
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -178,7 +187,7 @@ namespace BarangaySystem
             lo.ShowDialog();
         }
 
-               
+
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
@@ -204,6 +213,82 @@ namespace BarangaySystem
         {
 
         }
-    }
-    }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a resident first.");
+                return;
+            }
+
+            string residentId = listView1.SelectedItems[0].SubItems[0].Text;
+
+            string url =
+                "http://localhost/SYSTEM%20INTEGRATION%20AND%20ARCHITECTURE%20FINL%20PROJECT/BHCMS_Web/get-health-records.php?bims_resident_id="
+                + residentId;
+
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    string json = client.DownloadString(url);
+                    JObject data = JObject.Parse(json);
+
+                    if (data["message"] != null)
+                    {
+                        MessageBox.Show(data["message"].ToString());
+                        return;
+                    }
+
+                    healthRecordText =
+                        "BARANGAY HEALTH CENTER MANAGEMENT SYSTEM\n" +
+                        "CLIENT HEALTH RECORD\n" +
+                        "----------------------------------------\n\n" +
+                        "Name: " + data["client"]["fname"] + " " + data["client"]["lname"] + "\n" +
+                        "Sex: " + data["client"]["sex"] + "\n" +
+                        "Birth Date: " + data["client"]["birth_date"] + "\n" +
+                        "Address: " + data["client"]["address"] + "\n\n" +
+                        "CONSULTATION RECORDS\n";
+
+                    foreach (var record in data["consultation"])
+                    {
+                        healthRecordText +=
+                            "\nDate: " + record["date"] +
+                            "\nDiagnosis: " + record["diagnosis"] +
+                            "\nTreatment: " + record["treatment"] +
+                            "\nRemarks: " + record["remarks"] +
+                            "\n----------------------------------------\n";
+                    }
+
+                    printPreviewDialog1.Document = printDocument1;
+                    printPreviewDialog1.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to retrieve health record: " + ex.Message);
+            }
+
+
+
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(
+        healthRecordText,
+        new Font("Arial", 12),
+        Brushes.Black,
+        new RectangleF(80, 80, 700, 1000)
+            );
+        }
+
+    }
+}

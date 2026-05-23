@@ -23,7 +23,7 @@ The goal of the project is to synchronize resident information and provide commu
 - Dashboard Monitoring
 - Health Records Management
 - Barangay Resident Management
-- Synchronization Logs
+
 
 ## Developers
 

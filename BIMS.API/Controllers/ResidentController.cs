@@ -50,6 +50,21 @@ namespace BIMS.API.Controllers
 
             return Ok(resident);
         }
+        // POST api/residents
+        [HttpPost]
+        public async Task<IActionResult> AddResident([FromBody] Resident resident)
+        {
+            if (!IsAuthorized())
+                return Unauthorized(new { error = "Invalid API Key." });
+
+            if (resident == null)
+                return BadRequest(new { error = "No data received." });
+
+            _context.tbresident.Add(resident);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { status = "added", id = resident.id });
+        }
 
         // GET api/residents/search?q=senoc
         [HttpGet("search")]

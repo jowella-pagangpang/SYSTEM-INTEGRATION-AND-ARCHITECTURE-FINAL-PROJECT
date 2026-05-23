@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace BarangaySystem
 {
     public partial class Form1 : Form
     {
+        private readonly string API_BASE = "http://localhost:5000/api";
+        private readonly string API_KEY = "bims-secret-key-2024";
         public string sID;
         public string sql = "";
         public string pic;
@@ -74,19 +78,34 @@ namespace BarangaySystem
         private void Form1_Load(object sender, EventArgs e)
         {
             this.ActiveControl = label1;
+
             DateTime now = DateTime.Now;
             label3.Text = now.ToString();
 
-            clsMySQL.sql_con.Close();
-            clsMySQL.sql_con.Open();
+            LoadDashboardCounts();
+        }
 
-            if (clsMySQL.sql_con.State == ConnectionState.Closed)
+        private void LoadDashboardCounts()
+        {
+            try
             {
-                clsMySQL.sql_con.Open();
-            }
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("X-API-KEY", API_KEY);
 
-            lblResidents.Text = GetCount("tbresident").ToString();
-            lblTotalLogs.Text = GetCount("tbhistory").ToString();
+                    string residentsJson = client.DownloadString(API_BASE + "/residents");
+                    JArray residents = JArray.Parse(residentsJson);
+                    lblResidents.Text = residents.Count.ToString();
+
+                    lblTotalLogs.Text = "0"; // temporary until logs API is added
+                }
+            }
+            catch
+            {
+                lblResidents.Text = "0";
+                lblTotalLogs.Text = "0";
+                MessageBox.Show("API server is offline. Dashboard data cannot be loaded.");
+            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -101,9 +120,6 @@ namespace BarangaySystem
 
         private void button7_Click(object sender, EventArgs e)
         {
-            sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Logout', 'Admin')";
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            sql_cmd.ExecuteNonQuery();
             LOGIN st = new LOGIN();
             this.Hide();
             st.ShowDialog();
@@ -125,14 +141,7 @@ namespace BarangaySystem
         }
 
 
-        private int GetCount(string tableName)
-        {
-            string query = "SELECT COUNT(*) FROM " + tableName;
-
-            MySqlCommand cmd = new MySqlCommand(query, clsMySQL.sql_con);
-            return Convert.ToInt32(cmd.ExecuteScalar());
-        }
-
+       
         private void label5_Click(object sender, EventArgs e)
         {
 

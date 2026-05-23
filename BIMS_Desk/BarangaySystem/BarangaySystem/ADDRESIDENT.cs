@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net;
+using System.Text;
 
 namespace BarangaySystem
 {
     public partial class ADDRESIDENT : Form
     {
+        private readonly string API_URL = "http://localhost:5000/api/residents";
+        private readonly string API_KEY = "bims-secret-key-2024";
         public string sID;
         public string sql = "";
         public string pic;
@@ -25,8 +22,7 @@ namespace BarangaySystem
         private void ADDRESIDENT_Load(object sender, EventArgs e)
         {
             this.ActiveControl = null;
-            clsMySQL.sql_con.Close();
-            clsMySQL.sql_con.Open();
+
             DateTime now = DateTime.Now;
             label3.Text = now.ToString();
         }
@@ -34,28 +30,54 @@ namespace BarangaySystem
         private void button11_Click(object sender, EventArgs e)
         {
 
-            if (tx1.Text == "" || tx2.Text == "" || tx3.Text == "" || tx4.Text == "" || tx5.Text == "" || tx6.Text == "" || tx7.Text == "" || tx8.Text == "" || tx9.Text == "" || tx10.Text == "" || tx11.Text == "" || tx12.Text == "" || tx13.Text=="")
+            if (tx1.Text == "" || tx2.Text == "" || tx3.Text == "" || tx4.Text == "" ||
+        tx5.Text == "" || tx6.Text == "" || tx7.Text == "" || tx8.Text == "" ||
+        tx9.Text == "" || tx10.Text == "" || tx11.Text == "" || tx12.Text == "" ||
+        tx13.Text == "")
             {
                 MessageBox.Show("Please fill up all the requirements");
+                return;
             }
-            else
-            {
-                addResident();
-                sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Add a resident profile', 'Admin')";
-                sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-                sql_cmd.ExecuteNonQuery();
-            }
-              
+
+            addResident();
+
         }
         private void addResident()
         {
 
-            sql = string.Format("INSERT INTO tbresident VALUES (null, '{0}', '{1}', '{2}','{3}', '{4}', '{5}', '{6}', '{7}', '{8}','{9}', '{10}','{11}', '{12}')",
-      tx1.Text, tx2.Text, tx3.Text, tx4.Text, tx5.Text, tx6.Text, tx7.Text, tx8.Text, tx9.Text, tx10.Text, tx11.Text, tx12.Text, tx13.Text);
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            sql_cmd.ExecuteNonQuery();
-            MessageBox.Show("New Resident has been added successfully!", "Add Resident");
-            clearall();
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("Content-Type", "application/json");
+                    client.Headers.Add("X-API-KEY", API_KEY);
+
+                    string json = "{"
+                        + "\"surname\":\"" + tx1.Text + "\","
+                        + "\"fname\":\"" + tx2.Text + "\","
+                        + "\"mname\":\"" + tx3.Text + "\","
+                        + "\"bday\":\"" + tx4.Text + "\","
+                        + "\"age\":\"" + tx5.Text + "\","
+                        + "\"birthplace\":\"" + tx6.Text + "\","
+                        + "\"sex\":\"" + tx7.Text + "\","
+                        + "\"civil\":\"" + tx8.Text + "\","
+                        + "\"citizen\":\"" + tx9.Text + "\","
+                        + "\"relgion\":\"" + tx10.Text + "\","
+                        + "\"occupation\":\"" + tx11.Text + "\","
+                        + "\"houseno\":\"" + tx12.Text + "\","
+                        + "\"purok\":\"" + tx13.Text + "\""
+                        + "}";
+
+                    client.UploadString(API_URL, "POST", json);
+
+                    MessageBox.Show("New Resident has been added through API successfully!", "Add Resident");
+                    clearall();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("API server is offline. Cannot add resident.");
+            }
 
         }
 

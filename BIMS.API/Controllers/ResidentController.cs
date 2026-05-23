@@ -170,5 +170,55 @@ namespace BIMS.API.Controllers
                 resident
             });
         }
+
+        //Update endpoint
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateResident(int id, [FromBody] Resident updated)
+        {
+            if (!IsAuthorized())
+                return Unauthorized();
+
+            var resident = await _context.tbresident.FindAsync(id);
+
+            if (resident == null)
+                return NotFound();
+
+            resident.surname = updated.surname;
+            resident.fname = updated.fname;
+            resident.mname = updated.mname;
+            resident.bday = updated.bday;
+            resident.age = updated.age;
+            resident.birthplace = updated.birthplace;
+            resident.sex = updated.sex;
+            resident.civil = updated.civil;
+            resident.citizen = updated.citizen;
+            resident.relgion = updated.relgion;
+            resident.occupation = updated.occupation;
+            resident.houseno = updated.houseno;
+            resident.purok = updated.purok;
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        //delete endpoint
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteResident(int id)
+        {
+            if (!IsAuthorized())
+                return Unauthorized();
+
+            var resident = await _context.tbresident.FindAsync(id);
+
+            if (resident == null)
+                return NotFound();
+
+            _context.tbresident.Remove(resident);
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
     }
 }

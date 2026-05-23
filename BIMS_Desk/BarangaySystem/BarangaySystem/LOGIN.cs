@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net;
+
 
 namespace BarangaySystem
 {
     public partial class LOGIN : Form
     {
+        private readonly string API_URL = "http://localhost:5000/api/residents";
+        private readonly string API_KEY = "bims-secret-key-2024";
         public string sID;
         public string sql = "";
         public MySqlCommand sql_cmd = new MySqlCommand();
@@ -50,19 +54,13 @@ namespace BarangaySystem
         {
             this.ActiveControl = label1;
 
-            clsMySQL.sql_con.Close();
-            clsMySQL.sql_con.Open();
-
-            // Built-in admin account
             textBox1.ForeColor = Color.Black;
             textBox1.Text = "admin";
 
             textBox2.ForeColor = Color.Black;
             textBox2.Text = "admin";
 
-            // Hidden password by default
             textBox2.UseSystemPasswordChar = true;
-
             chkShowPassword.Checked = false;
         }
 
@@ -100,7 +98,7 @@ namespace BarangaySystem
         private void login(String username, String password)
         {
             if (username == "Enter Username:" || password == "Enter Password:" ||
-            string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+        string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Please fill up all the requirements");
                 return;
@@ -108,46 +106,32 @@ namespace BarangaySystem
 
             try
             {
-                if (clsMySQL.sql_con.State != ConnectionState.Open)
+                using (WebClient client = new WebClient())
                 {
-                    clsMySQL.sql_con.Open();
+                    client.Headers.Add("Content-Type", "application/json");
+                    client.Headers.Add("X-API-KEY", API_KEY);
+
+                    string json = "{"
+                        + "\"username\":\"" + username + "\","
+                        + "\"password\":\"" + password + "\""
+                        + "}";
+
+                    string response = client.UploadString(API_URL, "POST", json);
+
+                    MessageBox.Show("Admin has successfully logged in");
+
+                    Form1 main = new Form1();
+                    this.Hide();
+                    main.ShowDialog();
                 }
-
-                string query = "SELECT username, password FROM tbadmin WHERE username=@username AND password=@password";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, clsMySQL.sql_con))
-                {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    using (MySqlDataReader rd = cmd.ExecuteReader())
-                    {
-                        if (rd.Read())
-                        {
-                            rd.Close();
-
-                            MessageBox.Show("Admin has successfully logged in");
-
-                            string historyQuery = "INSERT INTO tbhistory(timeanddate, activity, username) VALUES(now(), 'Login', @username)";
-                            using (MySqlCommand historyCmd = new MySqlCommand(historyQuery, clsMySQL.sql_con))
-                            {
-                                historyCmd.Parameters.AddWithValue("@username", username);
-                                historyCmd.ExecuteNonQuery();
-                            }
-
-                            Form1 main = new Form1();
-                            this.Hide();
-                            main.ShowDialog();
-                            return;
-                        }
-                    }
-                }
-
-                MessageBox.Show("Invalid Username or Password");
+            }
+            catch (WebException)
+            {
+                MessageBox.Show("API server is offline or invalid username/password.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database error: " + ex.Message);
+                MessageBox.Show("Login error: " + ex.Message);
             }
         }
 

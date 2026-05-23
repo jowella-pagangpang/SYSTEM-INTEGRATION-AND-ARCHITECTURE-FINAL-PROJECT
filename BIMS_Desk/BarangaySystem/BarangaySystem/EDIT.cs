@@ -8,11 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net;
+using Newtonsoft.Json.Linq;
+
 
 namespace BarangaySystem
 {
     public partial class EDIT : Form
     {
+        private readonly string API_URL = "http://localhost:5000/api/residents";
+        private readonly string API_KEY = "bims-secret-key-2024";
         public string sID;
         public string sql = "";
         public string pic;
@@ -25,12 +30,10 @@ namespace BarangaySystem
 
         private void EDIT_Load(object sender, EventArgs e)
         {
-        
             this.ActiveControl = label1;
-            clsMySQL.sql_con.Close();
-            clsMySQL.sql_con.Open();
+
             showList();
-            label19.Text = Convert.ToString(listView1.Items.Count);
+
             DateTime now = DateTime.Now;
             label3.Text = now.ToString();
         }
@@ -121,50 +124,69 @@ namespace BarangaySystem
     
          private void updateRecord(string srcID)
         {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("Content-Type", "application/json");
+                    client.Headers.Add("X-API-KEY", API_KEY);
 
-            sql = string.Format("UPDATE tbresident SET surname='{0}', fname='{1}', mname='{2}',bday='{3}', age='{4}', birthplace='{5}', sex='{6}',civil='{7}', citizen='{8}', relgion='{9}', occupation='{10}', houseno='{11}', purok='{12}' WHERE id={13}",
-   lb1.Text, lb2.Text, lb3.Text, lb4.Text, lb5.Text, lb6.Text, lb7.Text, lb8.Text, lb9.Text, lb10.Text, lb11.Text, lb12.Text, lb13.Text, srcID);
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            sql_cmd.ExecuteNonQuery();
-            MessageBox.Show("Resident Data has been update successfully!", "Update Resident");
+                    string json =
+                    "{"
+                    + "\"surname\":\"" + lb1.Text + "\","
+                    + "\"fname\":\"" + lb2.Text + "\","
+                    + "\"mname\":\"" + lb3.Text + "\","
+                    + "\"bday\":\"" + lb4.Text + "\","
+                    + "\"age\":\"" + lb5.Text + "\","
+                    + "\"birthplace\":\"" + lb6.Text + "\","
+                    + "\"sex\":\"" + lb7.Text + "\","
+                    + "\"civil\":\"" + lb8.Text + "\","
+                    + "\"citizen\":\"" + lb9.Text + "\","
+                    + "\"relgion\":\"" + lb10.Text + "\","
+                    + "\"occupation\":\"" + lb11.Text + "\","
+                    + "\"houseno\":\"" + lb12.Text + "\","
+                    + "\"purok\":\"" + lb13.Text + "\""
+                    + "}";
+
+                    client.UploadString(API_URL + "/" + srcID, "PUT", json);
+
+                    MessageBox.Show("Resident updated successfully!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("API server offline.");
+            }
+
         }
-
-         private void button12_Click(object sender, EventArgs e)
-         {
-             if(sID==""||sID== null)
-         {
-             MessageBox.Show("Select first a student");
-         }
-         else
-         {
-             Show_StudData(sID);
-         }
-             
-         }
 
          private void button13_Click(object sender, EventArgs e)
          {
-            if (listView1.SelectedItems.Count == 0)
+            if (string.IsNullOrEmpty(sID))
             {
-                MessageBox.Show("Please select a resident first.");
+                MessageBox.Show("Select resident first.");
                 return;
             }
 
-            string SID = listView1.SelectedItems[0].Text;
+            try
             {
-                 sql = "DELETE FROM tbresident WHERE id=" + sID;
-                 sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-                 sql_cmd.ExecuteNonQuery();
-                 MessageBox.Show("You have successfully deleted a record of a resident");
-                 showList();
-                 clear();
-                 sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Delete a resident profile', 'Admin')";
-                 sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-                 sql_cmd.ExecuteNonQuery();
-                 label19.Text = Convert.ToString(listView1.Items.Count);
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("X-API-KEY", API_KEY);
 
-             }
-         }
+                    client.UploadString(API_URL + "/" + sID,
+                    "DELETE", "");
+
+                    MessageBox.Show("Resident deleted.");
+                    showList();
+                    clear();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("API offline.");
+            }
+        }
 
          private void panel2_Paint(object sender, PaintEventArgs e)
          {

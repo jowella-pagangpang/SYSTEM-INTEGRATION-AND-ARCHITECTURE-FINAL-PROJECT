@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace BarangaySystem
 {
     public partial class organization : Form
     {
+        private readonly string API_URL = "http://localhost:5000/api/officials/1";
+        private readonly string API_KEY = "bims-secret-key-2024";
         public string sID = "";
         public string sql = "";
         public string pic;
@@ -38,49 +42,74 @@ namespace BarangaySystem
         private void organization_Load(object sender, EventArgs e)
         {
             this.ActiveControl = label1;
-            clsMySQL.sql_con.Close();
-            clsMySQL.sql_con.Open();
             showlist();
+
             DateTime now = DateTime.Now;
             label3.Text = now.ToString();
         }
         private void showlist()
         {
-            sql = "SELECT * FROM tbofficial WHERE id = 1";
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            MySqlDataReader rd = sql_cmd.ExecuteReader();
-            while (rd.Read())
+            try
             {
-                tx1.Text = rd["q"].ToString();
-                tx2.Text = rd["w"].ToString();
-                tx3.Text = rd["e"].ToString();
-                tx4.Text = rd["r"].ToString();
-                tx5.Text = rd["t"].ToString();
-                tx6.Text = rd["y"].ToString();
-                tx7.Text = rd["u"].ToString();
-                tx8.Text = rd["i"].ToString();
-                tx9.Text = rd["o"].ToString();
-                tx10.Text = rd["p"].ToString();
-               
-               
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("X-API-KEY", API_KEY);
 
+                    string json = client.DownloadString(API_URL);
+                    JObject rd = JObject.Parse(json);
+
+                    tx1.Text = rd["q"]?.ToString();
+                    tx2.Text = rd["w"]?.ToString();
+                    tx3.Text = rd["e"]?.ToString();
+                    tx4.Text = rd["r"]?.ToString();
+                    tx5.Text = rd["t"]?.ToString();
+                    tx6.Text = rd["y"]?.ToString();
+                    tx7.Text = rd["u"]?.ToString();
+                    tx8.Text = rd["i"]?.ToString();
+                    tx9.Text = rd["o"]?.ToString();
+                    tx10.Text = rd["p"]?.ToString();
+                }
             }
-            rd.Close();
+            catch
+            {
+                MessageBox.Show("API server is offline. Cannot load organization data.");
+            }
 
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-           
-            sql = string.Format("UPDATE tbofficial SET q='{0}', w='{1}', e='{2}',r='{3}', t='{4}', y='{5}', u='{6}', i='{7}', o='{8}', p='{9}' WHERE id=1",
-        tx1.Text, tx2.Text, tx3.Text, tx4.Text, tx5.Text, tx6.Text, tx7.Text, tx8.Text, tx9.Text, tx10.Text);
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            sql_cmd.ExecuteNonQuery();
-            MessageBox.Show("Organization Data has been update successfully!", "Update Organization");
-            showlist();
-            sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Update Organization', 'Admin')";
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            sql_cmd.ExecuteNonQuery();
+
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("Content-Type", "application/json");
+                    client.Headers.Add("X-API-KEY", API_KEY);
+
+                    string json = "{"
+                        + "\"q\":\"" + tx1.Text + "\","
+                        + "\"w\":\"" + tx2.Text + "\","
+                        + "\"e\":\"" + tx3.Text + "\","
+                        + "\"r\":\"" + tx4.Text + "\","
+                        + "\"t\":\"" + tx5.Text + "\","
+                        + "\"y\":\"" + tx6.Text + "\","
+                        + "\"u\":\"" + tx7.Text + "\","
+                        + "\"i\":\"" + tx8.Text + "\","
+                        + "\"o\":\"" + tx9.Text + "\","
+                        + "\"p\":\"" + tx10.Text + "\""
+                        + "}";
+
+                    client.UploadString(API_URL, "PUT", json);
+
+                    MessageBox.Show("Organization updated through API successfully.");
+                    showlist();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("API server is offline. Cannot update organization data.");
+            }
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
@@ -138,9 +167,6 @@ namespace BarangaySystem
                 
         private void button7_Click(object sender, EventArgs e)
         {
-            sql = "INSERT INTO tbhistory(timeanddate,activity,username)VALUES(now(),'Logout', 'Admin')";
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            sql_cmd.ExecuteNonQuery();
             LOGIN st = new LOGIN();
             this.Hide();
             st.ShowDialog();

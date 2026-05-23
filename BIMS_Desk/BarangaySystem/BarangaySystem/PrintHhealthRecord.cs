@@ -48,7 +48,7 @@ namespace BarangaySystem
                 new Font("Arial", 9),
                 Brushes.Black,
                 new RectangleF(80, 80, 700, 1000)
-            );
+            );  
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

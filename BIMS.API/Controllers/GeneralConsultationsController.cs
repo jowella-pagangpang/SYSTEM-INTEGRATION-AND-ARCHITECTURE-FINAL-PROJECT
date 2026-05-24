@@ -95,5 +95,21 @@ namespace BIMS.API.Controllers
 
             return Ok(consultation);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateConsultation(int id, [FromBody] GeneralConsultation updated)
+        {
+            if (!IsAuthorized()) return Unauthorized();
+
+            var consultation = await _context.general_consultations.FindAsync(id);
+            if (consultation == null) return NotFound();
+
+            consultation.concern = updated.concern;
+            consultation.medicine_given = updated.medicine_given;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(consultation);
+        }
     }
 }

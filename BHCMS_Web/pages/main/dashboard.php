@@ -129,7 +129,7 @@ if($response){
 
       <div class="card-body">
 
-        <h5 class="font-weight-bold">
+        <h4 class="font-weight-bold">
           Welcome to Barangay Health Record Management System
         </h5>
 

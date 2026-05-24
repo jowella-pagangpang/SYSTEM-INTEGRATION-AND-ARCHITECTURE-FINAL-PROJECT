@@ -75,20 +75,16 @@ if(isset($_POST['save_consult'])){
   $message = $saved ? "Consultation added successfully." : "API offline. Cannot save consultation.";
 }
 
-if(isset($_POST['edit_client'])){
-  $id = intval($_POST['client_id']);
+if(isset($_POST['edit_consult'])){
+  $id = intval($_POST['consult_id']);
 
-  $client = [
-    "fname" => $_POST['fname'],
-    "mname" => $_POST['mname'],
-    "surname" => $_POST['surname'],
-    "sex" => $_POST['sex'],
-    "bday" => $_POST['bday'],
-    "purok" => $_POST['purok']
+  $consult = [
+    "concern" => $_POST['concern'],
+    "medicine_given" => $_POST['medicine_given']
   ];
 
-  $updated = api_request("PUT", "/Clients/".$id, $client);
-  $message = $updated ? "Client updated successfully." : "API offline. Cannot update client.";
+  $updated = api_request("PUT", "/GeneralConsultations/".$id, $consult);
+  $message = $updated ? "Consultation updated successfully." : "API offline. Cannot update consultation.";
 }
 
 $clients = api_request("GET", "/Clients");
@@ -190,12 +186,16 @@ if(!is_array($consultations)){
                 <?php foreach($clients as $c){ 
                   
                   $latestConcern = "";
+                  $latestMedicine = "";
+                  $latestConsultId = 0;
 
                   foreach($consultations as $gc){
-                  if($gc['client_id'] == $c['client_id']){
-                    $latestConcern = $gc['concern'];
-                  break;
-                  }
+                    if($gc['client_id'] == $c['client_id']){
+                      $latestConcern = $gc['concern'];
+                      $latestMedicine = $gc['medicine_given'];
+                      $latestConsultId = $gc['consult_id'];
+                      break;
+                    }
                   }
                 ?>
                 
@@ -223,7 +223,7 @@ if(!is_array($consultations)){
 
                 <div class="modal fade" id="consultModal<?php echo $c['client_id']; ?>">
                   <div class="modal-dialog">
-                    <form method="post" class="modal-content">
+                    <form method="post" class="modal-content bg-white">
                       <div class="modal-header bg-success">
                         <h5 class="modal-title">Add Consultation</h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -236,7 +236,7 @@ if(!is_array($consultations)){
                         <input class="form-control mb-2" readonly value="<?php echo $c['fname'].' '.$c['mname'].' '.$c['surname']; ?>">
 
                         <label>Consultation Concern</label>
-                        <textarea name="consult_concern" class="form-control mb-2" required></textarea>
+                        <textarea name="consult_concern" class="form-control mb-2" required><?php echo htmlspecialchars($latestConcern); ?></textarea>
 
                         <label>Medicine / Action Taken</label>
                         <textarea name="medicine_given" class="form-control" required></textarea>
@@ -257,30 +257,18 @@ if(!is_array($consultations)){
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
 
-                      <div class="modal-body">
-                        <input type="hidden" name="client_id" value="<?php echo $c['client_id']; ?>">
-
-                        <label>First Name</label>
-                        <input name="fname" class="form-control mb-2" value="<?php echo $c['fname']; ?>">
-
-                        <label>Middle Name</label>
-                        <input name="mname" class="form-control mb-2" value="<?php echo $c['mname']; ?>">
-
-                        <label>Surname</label>
-                        <input name="surname" class="form-control mb-2" value="<?php echo $c['surname']; ?>">
-
-                        <label>Sex</label>
-                        <input name="sex" class="form-control mb-2" value="<?php echo $c['sex']; ?>">
-
-                        <label>Birthdate</label>
-                        <input name="bday" class="form-control mb-2" value="<?php echo $c['bday']; ?>">
-
-                        <label>Purok</label>
-                        <input name="purok" class="form-control mb-2" value="<?php echo $c['purok']; ?>">
+                      <div class="modal-body bg-white">
+                        <input type="hidden" name="consult_id" value="<?php echo $latestConsultId; ?>">
+                        <label>Client Name</label>
+                        <input class="form-control mb-2" readonly value="<?php echo $c['fname'].' '.$c['mname'].' '.$c['surname']; ?>">
+                        <label>Concern</label>
+                        <textarea name="concern" class="form-control mb-2" required><?php echo htmlspecialchars($latestConcern); ?></textarea>
+                        <label>Medicine / Action Taken</label>
+                        <textarea name="medicine_given" class="form-control mb-2" required><?php echo htmlspecialchars($latestMedicine); ?></textarea>
                       </div>
 
                       <div class="modal-footer">
-                        <button type="submit" name="edit_client" class="btn btn-warning">Update</button>
+                        <button type="submit" name="edit_consult" class="btn btn-warning">Update</button>
                       </div>
                     </form>
                   </div>

@@ -21,10 +21,12 @@ namespace BIMS.API.Controllers
 
         private bool IsAuthorized()
         {
-            var key = Request.Headers["X-API-KEY"].ToString();
+            if (!Request.Headers.TryGetValue("X-API-KEY", out var key))
+                return false;
 
-            return key ==
-             _config["ApiSettings:ApiKey"];
+            var apiKey = _config["ApiSettings:ApiKey"];
+
+            return key.ToString().Trim() == apiKey.Trim();
         }
 
         [HttpGet]

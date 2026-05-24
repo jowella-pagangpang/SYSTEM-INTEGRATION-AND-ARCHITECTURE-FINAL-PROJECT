@@ -21,6 +21,5 @@ namespace BIMS.API.Models
         public string? occupation { get; set; } = null;
         public string? houseno { get; set; } = null;
         public string? purok { get; set; } = null;
-        public int is_bhw { get; set; }
     }
 }

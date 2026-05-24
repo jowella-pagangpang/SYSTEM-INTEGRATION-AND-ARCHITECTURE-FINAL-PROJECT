@@ -8,7 +8,7 @@ namespace BIMS.API.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly string API_URL = "http://localhost:5000/api/auth/login";
+        private readonly string API_URL = "https://localhost:5000/api/Auth/login";
         private readonly string API_KEY = "bims-secret-key-2024";
         private readonly BimsDbContext _context;
         private readonly IConfiguration _config;
@@ -21,8 +21,12 @@ namespace BIMS.API.Controllers
 
         private bool IsAuthorized()
         {
-            var key = Request.Headers["X-API-KEY"].ToString();
-            return key == _config["ApiSettings:ApiKey"];
+            if (!Request.Headers.TryGetValue("X-API-KEY", out var key))
+                return false;
+
+            var apiKey = _config["ApiSettings:ApiKey"];
+
+            return key.ToString().Trim() == apiKey.Trim();
         }
 
         [HttpPost("login")]
@@ -46,7 +50,7 @@ namespace BIMS.API.Controllers
 
     public class LoginDto
     {
-        public string username { get; set; }
-        public string password { get; set; }
+        public string username { get; set; } = "admin";
+        public string password { get; set; } = "admin";
     }
 }

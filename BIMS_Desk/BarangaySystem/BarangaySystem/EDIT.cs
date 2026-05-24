@@ -16,7 +16,7 @@ namespace BarangaySystem
 {
     public partial class EDIT : Form
     {
-        private readonly string API_URL = "http://localhost:5000/api/residents";
+        private readonly string API_URL = "https://localhost:44315/api/Residents";
         private readonly string API_KEY = "bims-secret-key-2024";
         public string sID;
         public string sql = "";
@@ -302,6 +302,11 @@ namespace BarangaySystem
             LOGIN st = new LOGIN();
             this.Hide();
             st.ShowDialog();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

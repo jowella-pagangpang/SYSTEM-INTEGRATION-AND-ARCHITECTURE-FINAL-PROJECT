@@ -22,8 +22,12 @@ namespace BIMS.API.Controllers
         // ✅ Validate API Key
         private bool IsAuthorized()
         {
-            var key = Request.Headers["X-API-KEY"].ToString();
-            return key == _config["ApiSettings:ApiKey"];
+            if (!Request.Headers.TryGetValue("X-API-KEY", out var key))
+                return false;
+
+            var apiKey = _config["ApiSettings:ApiKey"];
+
+            return key.ToString().Trim() == apiKey.Trim();
         }
 
         // GET api/residents
@@ -139,37 +143,7 @@ namespace BIMS.API.Controllers
             return Ok(new { status = "updated", id = resident.id });
         }
 
-        [HttpGet("verify-bhw")]
-        public async Task<IActionResult> VerifyBhw([FromQuery] int id)
-        {
-            if (!IsAuthorized())
-                return Unauthorized(new { error = "Invalid API Key." });
 
-            var resident = await _context.tbresident
-                .Where(r => r.id == id)
-                .Select(r => new
-                {
-                    r.id,
-                    r.fname,
-                    r.mname,
-                    r.surname,
-                    r.is_bhw
-                })
-                .FirstOrDefaultAsync();
-
-            if (resident == null)
-                return NotFound(new { error = "Resident not found in BMIS." });
-
-            if (resident.is_bhw != 1)
-                return BadRequest(new { error = "Resident is not registered as BHW." });
-
-            return Ok(new
-            {
-                status = "verified",
-                message = "Resident is verified as BHW.",
-                resident
-            });
-        }
 
         //Update endpoint
         [HttpPut("{id}")]

@@ -15,7 +15,7 @@ namespace BarangaySystem
 {
     public partial class Form1 : Form
     {
-        private readonly string API_BASE = "http://localhost:5000/api";
+        private readonly string API_BASE = "https://localhost:44315/api";
         private readonly string API_KEY = "bims-secret-key-2024";
         public string sID;
         public string sql = "";

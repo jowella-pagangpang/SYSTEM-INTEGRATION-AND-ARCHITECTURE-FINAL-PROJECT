@@ -8,7 +8,7 @@ namespace BarangaySystem
 {
     public partial class ADDRESIDENT : Form
     {
-        private readonly string API_URL = "http://localhost:5000/api/residents";
+        private readonly string API_URL = "https://localhost:44315/api/Residents";
         private readonly string API_KEY = "bims-secret-key-2024";
         public string sID;
         public string sql = "";

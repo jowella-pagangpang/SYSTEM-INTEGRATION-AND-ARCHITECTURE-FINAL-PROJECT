@@ -89,12 +89,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintHhealthRecord.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrintHhealthRecord.Designer.cs">
-      <DependentUpon>PrintHhealthRecord.cs</DependentUpon>
-    </Compile>
     <Compile Include="LOGIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,9 +134,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="organization.resx">
       <DependentUpon>organization.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PrintHhealthRecord.resx">
-      <DependentUpon>PrintHhealthRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

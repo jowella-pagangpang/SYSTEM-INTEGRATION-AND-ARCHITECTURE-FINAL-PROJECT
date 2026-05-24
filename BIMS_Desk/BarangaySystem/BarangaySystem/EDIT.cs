@@ -39,29 +39,46 @@ namespace BarangaySystem
         }
         private void showList()
         {
-            sql = "SELECT * FROM tbresident";
-            sql_cmd = new MySqlCommand(sql, clsMySQL.sql_con);
-            MySqlDataReader rd = sql_cmd.ExecuteReader();
-            listView1.Items.Clear();
-            while (rd.Read())
+            try
             {
-                listView1.Items.Add(rd["id"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["surname"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["fname"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["mname"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["bday"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["age"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["birthplace"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["sex"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["civil"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["citizen"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["relgion"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["occupation"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["houseno"].ToString());
-                listView1.Items[listView1.Items.Count - 1].SubItems.Add(rd["purok"].ToString());
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("X-API-KEY", API_KEY);
+
+                    string json = client.DownloadString(API_URL);
+                    JArray residents = JArray.Parse(json);
+
+                    listView1.Items.Clear();
+
+                    foreach (var rd in residents)
+                    {
+                        ListViewItem item = new ListViewItem(rd["id"]?.ToString());
+                        item.SubItems.Add(rd["surname"]?.ToString());
+                        item.SubItems.Add(rd["fname"]?.ToString());
+                        item.SubItems.Add(rd["mname"]?.ToString());
+                        item.SubItems.Add(rd["bday"]?.ToString());
+                        item.SubItems.Add(rd["age"]?.ToString());
+                        item.SubItems.Add(rd["birthplace"]?.ToString());
+                        item.SubItems.Add(rd["sex"]?.ToString());
+                        item.SubItems.Add(rd["civil"]?.ToString());
+                        item.SubItems.Add(rd["citizen"]?.ToString());
+                        item.SubItems.Add(rd["relgion"]?.ToString());
+                        item.SubItems.Add(rd["occupation"]?.ToString());
+                        item.SubItems.Add(rd["houseno"]?.ToString());
+                        item.SubItems.Add(rd["purok"]?.ToString());
+
+                        listView1.Items.Add(item);
+                    }
+
+                    label19.Text = listView1.Items.Count.ToString();
+                }
             }
-            rd.Close();
-            label19.Text = Convert.ToString(listView1.Items.Count);
+            catch
+            {
+                listView1.Items.Clear();
+                label19.Text = "0";
+                MessageBox.Show("API server is offline. Cannot load residents.");
+            }
         }
         private void Show_StudData(string srcID)
         {

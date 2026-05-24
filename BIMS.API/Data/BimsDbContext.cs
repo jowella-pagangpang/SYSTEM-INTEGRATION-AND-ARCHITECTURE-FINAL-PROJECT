@@ -14,5 +14,7 @@ namespace BIMS.API.Data
         public DbSet<Admin> tbadmin { get; set; }
         public DbSet<Official> tbofficial { get; set; }
         public DbSet<History> tbhistory { get; set; }
+        public DbSet<Client> clients { get; set; }
+        public DbSet<GeneralConsultation> general_consultations { get; set; }
     }
 }

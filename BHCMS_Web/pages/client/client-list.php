@@ -67,13 +67,18 @@ if(isset($_POST['save_client'])){
 if(isset($_POST['save_consult'])){
   $consult = [
     "client_id" => intval($_POST['client_id']),
-    "concern" => $_POST['consult_concern'],
+    "concern" => $_POST['concern'],
     "medicine_given" => $_POST['medicine_given']
   ];
 
   $saved = api_request("POST", "/GeneralConsultations", $consult);
-  $message = $saved ? "Consultation added successfully." : "API offline. Cannot save consultation.";
-}
+
+  if($saved){
+    $message = "Consultation added successfully.";
+  }else{
+    $message = "API offline or consultation was not saved.";
+  }
+} 
 
 if(isset($_POST['edit_consult'])){
   $id = intval($_POST['consult_id']);
@@ -106,7 +111,54 @@ if(!is_array($consultations)){
   <title>Client List</title>
   <link rel="icon" href="../../img/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+.modal-content {
+  background-color: #ffffff !important;
+  border-radius: 6px;
+}
 
+.modal-body {
+  background-color: #ffffff !important;
+  padding: 20px;
+}
+
+.modal-footer {
+  background-color: #ffffff !important;
+}
+
+.modal label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.modal textarea {
+  min-height: 80px;
+}
+
+.modal {
+  z-index: 1055 !important;
+  pointer-events: auto !important;
+}
+
+modal-dialog,
+.modal-content,
+.modal-body,
+.modal input,
+.modal textarea,
+.modal select {
+  pointer-events: auto !important;
+}
+
+.modal-content {
+  background: #fff !important;
+  z-index: 1060 !important;
+}
+
+.modal-backdrop {
+  z-index: 1050 !important;
+}
+</style>
 </head>
 
 <body class="hold-transition sidebar-mini">

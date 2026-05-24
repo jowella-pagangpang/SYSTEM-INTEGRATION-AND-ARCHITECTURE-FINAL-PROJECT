@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.Net;
 
 
@@ -18,8 +17,6 @@ namespace BarangaySystem
         private readonly string API_URL = "https://localhost:44315/api/Auth/login";
         private readonly string API_KEY = "bims-secret-key-2024";
         public string sID;
-        public string sql = "";
-        public MySqlCommand sql_cmd = new MySqlCommand();
         public string usern, pass;
         public LOGIN()
         {

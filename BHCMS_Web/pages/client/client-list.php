@@ -158,7 +158,7 @@ $clients = mysqli_query($con, "SELECT * FROM clients ORDER BY client_id DESC");
                 <td><?php echo $c['purok']; ?></td>
                 <td>
                     <a href="client-record.php?id=<?php echo $c['client_id']; ?>" class="btn btn-info btn-sm" title="View Record">
-                        i class="fas fa-file-medical"></i>
+                        <i class="fas fa-file-medical"></i>
                     </a>
 
                     <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#consultModal<?php echo $c['client_id']; ?>">
@@ -168,7 +168,7 @@ $clients = mysqli_query($con, "SELECT * FROM clients ORDER BY client_id DESC");
                     <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editModal<?php echo $c['client_id']; ?>">
                         Edit
                     </button>
-                    </td>
+                </td>
               </tr>
 
               <div class="modal fade" id="consultModal<?php echo $c['client_id']; ?>">
